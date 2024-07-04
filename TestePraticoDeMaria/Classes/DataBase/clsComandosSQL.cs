@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -48,7 +49,7 @@ namespace TestePraticoDeMaria.Classes.DataBase
         {
             string query = $"SELECT * FROM vwClientes ";
 
-            if (cpfCnpj) { query += $"WHERE cpfcnpj = {filtro} ORDER BY nome"; }
+            if (cpfCnpj) { query += $"WHERE cpfcnpj = '{filtro}' ORDER BY nome"; }
             else { query += $"WHERE nome ILIKE '%{filtro}%'"; }
 
 
@@ -153,6 +154,7 @@ namespace TestePraticoDeMaria.Classes.DataBase
 
         #endregion
 
+        #region Endereco
         public int AdicionarNovoEndereco(int cliente_id, string cep, string logradouro, int numero, string numerocomplemento, string bairro, string localidade, string uf)
         {
             string query = $"INSERT INTO tb_enderecos (cep, logradouro, numero, numerocomplemento, bairro, localidade, uf, cliente_id) " +
@@ -223,5 +225,110 @@ namespace TestePraticoDeMaria.Classes.DataBase
                 }
             }
         }
+
+        #endregion
+
+        #region Produto
+
+        public DataTable ObterListaProdutos()
+        {
+            string query = "SELECT * FROM tb_produtos ORDER BY produto";
+
+            using (var conexao = ConexaoSingleton.Instance.ObterConexao())
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexao))
+                {
+                    DataTable dataTable = new DataTable();
+
+                    try
+                    {
+                        conexao.Open();
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            dataTable.Load(reader);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    return dataTable;
+                }
+            }
+        }
+        public int AdicionarNovoProduto(string nome, int quantidadeEstoque, decimal precoUnitario, string descricao)
+        {
+            string query = $"INSERT INTO tb_produtos (produto, quantidadeEstoque, precoUnitario, descricao) " +
+                           $"VALUES ('{nome}', {quantidadeEstoque}, {precoUnitario.ToString(CultureInfo.InvariantCulture)}, '{descricao}') RETURNING id";
+
+            int newClientId = 0;
+
+            using (var conexao = ConexaoSingleton.Instance.ObterConexao())
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexao))
+                {
+                    try
+                    {
+                        conexao.Open();
+                        newClientId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return newClientId;
+        }
+        public bool AtualizarProduto(int id, string nome, int quantidadeEstoque, decimal precoUnitario, string descricao)
+        {
+            string query = $"UPDATE tb_produtos SET produto = '{nome}', quantidadeEstoque = {quantidadeEstoque}, precoUnitario = {precoUnitario}, descricao = '{descricao}' WHERE id = {id} ";
+
+            using (var conexao = ConexaoSingleton.Instance.ObterConexao())
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexao))
+                {
+                    try
+                    {
+                        conexao.Open();
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return false;
+                    }
+                }
+            }
+
+        }
+        public bool RemoverProduto(int id)
+        {
+            string query = $"DELETE FROM tb_produtos WHERE id = {id} ";
+
+            using (var conexao = ConexaoSingleton.Instance.ObterConexao())
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexao))
+                {
+                    try
+                    {
+                        conexao.Open();
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return false;
+                    }
+                }
+            }
+        }
+
+        #endregion
+
     }
 }

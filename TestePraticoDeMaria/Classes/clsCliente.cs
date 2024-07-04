@@ -42,10 +42,17 @@ namespace TestePraticoDeMaria.Classes
             id = 0;
         }
 
-        public void AtualizarOuCadastrarCliente()
+        public bool AtualizarOuCadastrarCliente()
         {
-            if (id == 0) { id = cmdSQL.AdicionarNovoCliente(Nome, CpfCnpj, TelefoneCelular, Email, PessoaJuridica); }
-            else { cmdSQL.AtualizarCliente(id, Nome, CpfCnpj, TelefoneCelular, Email, PessoaJuridica); }
+            if (id == 0)
+            {
+                id = cmdSQL.AdicionarNovoCliente(Nome, CpfCnpj, TelefoneCelular, Email, PessoaJuridica);
+                if (id == 0) { return false; } else { return true; }
+            }
+            else
+            {
+                return cmdSQL.AtualizarCliente(id, Nome, CpfCnpj, TelefoneCelular, Email, PessoaJuridica);
+            }
         }
 
         public void DeletarCliente()

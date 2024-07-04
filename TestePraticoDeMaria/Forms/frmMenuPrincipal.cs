@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -32,6 +33,7 @@ namespace TestePraticoDeMaria.Forms
         // Instâncias
         clsCliente cliente = new clsCliente(null, null, null, null, false);
         clsendereco endereco = new clsendereco(null, null, 0, null, null, null, null, 0);
+        clsProduto produto = new clsProduto(null, 0, 0, null);
         clsUtilisForm utilisForm = new clsUtilisForm();
         clsValidadorCpfCNPJ validadorCpfCNPJ = new clsValidadorCpfCNPJ();
         clsCorreios correios = new clsCorreios();
@@ -39,8 +41,10 @@ namespace TestePraticoDeMaria.Forms
         clsUtilsConsultas consultas = new clsUtilsConsultas();
 
         //Variaveis
+        DataTable dtClientes = new DataTable();
+        DataTable dtProdutos = new DataTable();
         DataTable dtListaClientes = new DataTable();
-
+        DataTable dtListaProdutos = new DataTable();
 
         #endregion
 
@@ -79,32 +83,60 @@ namespace TestePraticoDeMaria.Forms
             cmbClienteEnderecoUf.DataSource = siglas;
             cmbClienteEnderecoUf.SelectedIndex = -1;
         }
+        private void CarregarGridClientes()
+        {
+            dtClientes = consultas.ObterListaCompletaClientes();
+
+            if (dtClientes.Rows.Count > 0) { dgvClientePesquisa.DataSource = dtClientes; }
+
+        }
         private void CarregarListaClientes()
         {
             dtListaClientes = consultas.ObterListaCompletaClientes();
-
-            if (dtListaClientes.Rows.Count > 0) { dgvClientePesquisa.DataSource = dtListaClientes; }
-
+            cmbPedidoClientes.ValueMember = "cliente_id";
+            cmbPedidoClientes.DisplayMember = "nome";
+            cmbPedidoClientes.DataSource = dtListaClientes;
+            cmbPedidoClientes.SelectedIndex = -1;
         }
         private void PesquisarCliente()
         {
-            dtListaClientes = cliente.PesquisarCliente(txtClientePesquisa.Text);
-            if (dtListaClientes.Rows.Count > 0) { dgvClientePesquisa.DataSource = dtListaClientes; }
+            dtClientes = cliente.PesquisarCliente(txtClientePesquisa.Text);
+            if (dtClientes.Rows.Count > 0) { dgvClientePesquisa.DataSource = dtClientes; }
         }
         private void SalvarCliente()
         {
             this.Cursor = Cursors.WaitCursor;
+
             VerificaTipoCPFCNPJ();
+            if (!string.IsNullOrEmpty(txtClienteEnderecoCEP.Text))
+            {
+                if (txtClienteEnderecoCEP.Text.Length == 9) { btnClientePesquisarCEP_Click(null, null); }
+                else { return; }
+            }
 
             if (cliente.id != 0)
             {
                 cliente.CarregarCliente(txtClienteNome.Text, txtClienteCpfCnpj.Text, txtClienteEmail.Text, txtClienteTelefoneCelular.Text, chkPessoaJuridica.Checked, cliente.id);
-                cliente.AtualizarOuCadastrarCliente();
+                if (cliente.AtualizarOuCadastrarCliente())
+                {
+                    MessageBox.Show("Cliente atualizado com sucesso!", "Cadastro - Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Falaha ao atualizar o cliente verifique os campos e tente novmaente", "Cadastro - Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
                 cliente = new clsCliente(txtClienteNome.Text, txtClienteCpfCnpj.Text, txtClienteEmail.Text, txtClienteTelefoneCelular.Text, chkPessoaJuridica.Checked);
-                cliente.AtualizarOuCadastrarCliente();
+                if (cliente.AtualizarOuCadastrarCliente())
+                {
+                    MessageBox.Show("Cliente cadastrado com sucesso!", "Cadastro - Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Falaha ao cadastradar o cliente verifique os campos e tente novmaente", "Cadastro - Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             if (endereco.id != 0)
             {
@@ -123,7 +155,9 @@ namespace TestePraticoDeMaria.Forms
         }
         private void DeletarCliente()
         {
-            DialogResult result = MessageBox.Show("Atenção! ao remover o cliente será perdido todo o histórico de vendas para o mesmo! \n Deseja Continuar?", "ATENÇÃO!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (cliente.id == 0) { return; }
+
+            DialogResult result = MessageBox.Show("Atenção! ao remover o cliente será perdido todo o histórico de vendas para o mesmo! \n Deseja Continuar?", "ATENÇÃO!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
             if (result == DialogResult.Yes)
             {
@@ -131,8 +165,6 @@ namespace TestePraticoDeMaria.Forms
                 cliente.DeletarCliente();
                 btnClienteNovo_Click(null, null);
             }
-
-
         }
         private void CapturarDadosCliente(DataGridViewRow row)
         {
@@ -177,19 +209,59 @@ namespace TestePraticoDeMaria.Forms
 
         }
         #endregion
-       
+
+        #region MetodosProduto
+
+        private void CarregarGridProdutos()
+        {
+            dtProdutos = consultas.ObterListaCompletaProdutos();
+
+            if (dtProdutos.Rows.Count > 0) { dgvProdutoPesquisa.DataSource = dtProdutos; }
+
+        }
+
+        private void CarregarListaProdutos()
+        {
+            dtListaProdutos = consultas.ObterListaCompletaProdutos();
+            cmbPedidoProdutos.ValueMember = "id";
+            cmbPedidoProdutos.DisplayMember = "produto";
+            cmbPedidoProdutos.DataSource = dtListaProdutos;
+            cmbPedidoProdutos.SelectedIndex = -1;
+        }
+
+        private void SalvarProduto()
+        {
+            if (produto.Id != 0)
+            {
+
+            }
+            else
+            {
+                produto = new clsProduto(txtProdutoNome.Text, Convert.ToInt32(nudProdutoQuantidadeEstoque.Value), Convert.ToDecimal(txtProdutoPreco.Text), txtProdutoDescricao.Text);
+                produto.AtualizarOuCadastrarProduto();
+                
+            }
+        }
+
+        #endregion
+
         #endregion
 
         #region Eventos
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
-
+            dgvClientePesquisa.AutoGenerateColumns = false;
+            dgvProdutoPesquisa.AutoGenerateColumns = false;
             this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
             PreencherComboBoxEstados();
+            CarregarGridClientes();
+            CarregarGridProdutos();
             CarregarListaClientes();
-            dgvClientePesquisa.AutoGenerateColumns = false;
+            CarregarListaProdutos();
+
+
         }
 
         #region Menu
@@ -221,6 +293,7 @@ namespace TestePraticoDeMaria.Forms
 
         private async void btnClientePesquisarCEP_Click(object sender, EventArgs e)
         {
+
             await consultarCEP();
         }
         private void btnClientePesquisar_Click(object sender, EventArgs e)
@@ -239,7 +312,9 @@ namespace TestePraticoDeMaria.Forms
         }
         private void btnClienteSalvar_Click(object sender, EventArgs e)
         {
+            if (!utilisForm.VerificarTextBoxesObrigatorios(txtClienteNome, txtClienteCpfCnpj, txtClienteEmail, txtClienteEnderecoCEP)) { return; }
             SalvarCliente();
+            CarregarGridClientes();
             CarregarListaClientes();
         }
         private void btnClienteAbrirNovoPedido_Click(object sender, EventArgs e)
@@ -251,11 +326,14 @@ namespace TestePraticoDeMaria.Forms
             else
             {
                 tabInterface.SelectedTab = tabInterface.TabPages["tpVenda"];
+               cmbPedidoClientes.SelectedValue = cliente.id;
+
             }
         }
         private void btnClienteRemover_Click(object sender, EventArgs e)
         {
             DeletarCliente();
+            CarregarGridClientes();
             CarregarListaClientes();
         }
         private void txtClienteCpfCnpj_TextChanged(object sender, EventArgs e)
@@ -279,14 +357,14 @@ namespace TestePraticoDeMaria.Forms
         }
         private void txtClienteEnderecoCEP_TextChanged(object sender, EventArgs e)
         {
-            txtClienteEnderecoCEP.Text = utilisForm.ValidarTextoNumerosComSimbolo(txtClienteEnderecoCEP.Text);
+            txtClienteEnderecoCEP.Text = utilisForm.ValidarEFormatarCEP(txtClienteEnderecoCEP.Text);
             txtClienteEnderecoCEP.SelectionStart = txtClienteEnderecoCEP.Text.Length;
         }
         private void txtClientePesquisa_TextChanged(object sender, EventArgs e)
         {
             if (txtClientePesquisa.Text.Length <= 0)
             {
-                CarregarListaClientes();
+                CarregarGridClientes();
             }
         }
         private void dgvClientePesquisa_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -299,6 +377,36 @@ namespace TestePraticoDeMaria.Forms
             }
 
         }
+
+        #endregion
+
+
+        #region EventosProduto
+        private void btnProdutoNovo_Click(object sender, EventArgs e)
+        {
+            utilisForm.LimparTextBoxes(txtProdutoNome, txtProdutoPreco, txtProdutoDescricao);
+            nudProdutoQuantidadeEstoque.Value = 0;
+        }
+        private void btnProdutoSalvar_Click(object sender, EventArgs e)
+        {
+            SalvarProduto();
+            CarregarListaProdutos();
+            CarregarGridProdutos();
+            btnProdutoNovo_Click(null, null);
+        }
+
+        private void btnProdutoRemover_Click(object sender, EventArgs e)
+        {
+            CarregarListaProdutos();
+            CarregarGridProdutos();
+            btnProdutoNovo_Click(null, null);
+        }
+
+        private void txtProdutoPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtProdutoPesquisa.Text)) { CarregarGridProdutos(); }
+        }
+
         #endregion
 
         #endregion

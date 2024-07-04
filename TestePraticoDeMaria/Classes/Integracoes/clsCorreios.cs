@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.ServiceModel.Channels;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -22,6 +23,7 @@ namespace TestePraticoDeMaria.Classes.Integracoes
             else
             {
                 throw new Exception("Erro ao consultar o CEP.");
+               
             }
         }
 

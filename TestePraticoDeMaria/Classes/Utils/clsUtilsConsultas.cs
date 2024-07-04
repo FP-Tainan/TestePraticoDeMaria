@@ -21,6 +21,15 @@ namespace TestePraticoDeMaria.Classes.Utils
             return dt;
 
         }
+        public DataTable ObterListaCompletaProdutos()
+        {
+            DataTable dt = new DataTable();
+
+            dt = cmdSQL.ObterListaProdutos();
+
+            return dt;
+
+        }
 
     }
 }

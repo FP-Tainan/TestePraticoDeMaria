@@ -184,6 +184,7 @@
   <ItemGroup>
     <Compile Include="Classes\clsCliente.cs" />
     <Compile Include="Classes\clsendereco.cs" />
+    <Compile Include="Classes\clsProduto.cs" />
     <Compile Include="Classes\DataBase\clsComandosSQL.cs" />
     <Compile Include="Classes\DataBase\clsConexaoDB.cs" />
     <Compile Include="Classes\DataBase\ConexaoSingleton.cs" />

@@ -34,6 +34,20 @@
             this.tpMenu = new System.Windows.Forms.TabPage();
             this.tpCliente = new System.Windows.Forms.TabPage();
             this.dgvClientePesquisa = new System.Windows.Forms.DataGridView();
+            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCpfCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPessoaJuridica = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTelefoneCelular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLocalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colClienteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEnderecoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.grpDadosCliente = new System.Windows.Forms.GroupBox();
             this.cmbClienteEnderecoUf = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -105,15 +119,11 @@
             this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.dgvPedidoProdutos = new System.Windows.Forms.DataGridView();
-            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuantiade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValorUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label27 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.kryptonButton5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.cmdPedidoProdutos = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.cmbPedidoProdutos = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonButton4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label23 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -150,20 +160,15 @@
             this.btnRelatorios = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.grpNavMenu = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.btnConfiguracao = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCpfCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPessoaJuridica = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTelefoneCelular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLocalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colClienteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEnderecoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdutoVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQuantiade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValorUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecoUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabInterface.SuspendLayout();
             this.tpCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientePesquisa)).BeginInit();
@@ -188,7 +193,7 @@
             this.kryptonGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoProdutos)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdPedidoProdutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPedidoProdutos)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPedidoClientes)).BeginInit();
             this.tpRelatorios.SuspendLayout();
@@ -294,6 +299,119 @@
             this.dgvClientePesquisa.Size = new System.Drawing.Size(1157, 145);
             this.dgvClientePesquisa.TabIndex = 5;
             this.dgvClientePesquisa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientePesquisa_CellClick);
+            // 
+            // colNome
+            // 
+            this.colNome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNome.DataPropertyName = "nome";
+            this.colNome.HeaderText = "Nome";
+            this.colNome.MinimumWidth = 250;
+            this.colNome.Name = "colNome";
+            this.colNome.ReadOnly = true;
+            // 
+            // colCpfCnpj
+            // 
+            this.colCpfCnpj.DataPropertyName = "cpfcnpj";
+            this.colCpfCnpj.HeaderText = "CPF / CNPJ";
+            this.colCpfCnpj.Name = "colCpfCnpj";
+            this.colCpfCnpj.ReadOnly = true;
+            this.colCpfCnpj.Width = 150;
+            // 
+            // colPessoaJuridica
+            // 
+            this.colPessoaJuridica.DataPropertyName = "PessoaJuridica";
+            this.colPessoaJuridica.HeaderText = "Pessoa Juridica";
+            this.colPessoaJuridica.Name = "colPessoaJuridica";
+            this.colPessoaJuridica.ReadOnly = true;
+            this.colPessoaJuridica.Width = 150;
+            // 
+            // colEmail
+            // 
+            this.colEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colEmail.DataPropertyName = "email";
+            this.colEmail.HeaderText = "E-mail";
+            this.colEmail.Name = "colEmail";
+            this.colEmail.ReadOnly = true;
+            this.colEmail.Width = 69;
+            // 
+            // colTelefoneCelular
+            // 
+            this.colTelefoneCelular.DataPropertyName = "telefone";
+            this.colTelefoneCelular.HeaderText = "Telefone / Celular";
+            this.colTelefoneCelular.Name = "colTelefoneCelular";
+            this.colTelefoneCelular.ReadOnly = true;
+            this.colTelefoneCelular.Width = 150;
+            // 
+            // colCep
+            // 
+            this.colCep.DataPropertyName = "cep";
+            this.colCep.HeaderText = "CEP";
+            this.colCep.Name = "colCep";
+            this.colCep.ReadOnly = true;
+            // 
+            // colLogradouro
+            // 
+            this.colLogradouro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colLogradouro.DataPropertyName = "logradouro";
+            this.colLogradouro.HeaderText = "Logradouro";
+            this.colLogradouro.Name = "colLogradouro";
+            this.colLogradouro.ReadOnly = true;
+            this.colLogradouro.Width = 96;
+            // 
+            // colNumero
+            // 
+            this.colNumero.DataPropertyName = "numero";
+            this.colNumero.HeaderText = "Número";
+            this.colNumero.Name = "colNumero";
+            this.colNumero.ReadOnly = true;
+            // 
+            // colComplemento
+            // 
+            this.colComplemento.DataPropertyName = "numeroComplemento";
+            this.colComplemento.HeaderText = "Complemento";
+            this.colComplemento.Name = "colComplemento";
+            this.colComplemento.ReadOnly = true;
+            // 
+            // colBairro
+            // 
+            this.colBairro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colBairro.DataPropertyName = "bairro";
+            this.colBairro.HeaderText = "Bairro";
+            this.colBairro.Name = "colBairro";
+            this.colBairro.ReadOnly = true;
+            this.colBairro.Width = 66;
+            // 
+            // colLocalidade
+            // 
+            this.colLocalidade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colLocalidade.DataPropertyName = "localidade";
+            this.colLocalidade.HeaderText = "Localidade";
+            this.colLocalidade.Name = "colLocalidade";
+            this.colLocalidade.ReadOnly = true;
+            this.colLocalidade.Width = 94;
+            // 
+            // ColEstado
+            // 
+            this.ColEstado.DataPropertyName = "uf";
+            this.ColEstado.HeaderText = "Estado";
+            this.ColEstado.Name = "ColEstado";
+            this.ColEstado.ReadOnly = true;
+            // 
+            // colClienteId
+            // 
+            this.colClienteId.DataPropertyName = "cliente_id";
+            this.colClienteId.HeaderText = "Cliente_id";
+            this.colClienteId.Name = "colClienteId";
+            this.colClienteId.ReadOnly = true;
+            this.colClienteId.Visible = false;
+            // 
+            // colEnderecoId
+            // 
+            this.colEnderecoId.DataPropertyName = "endereco_id";
+            this.colEnderecoId.HeaderText = "Endereco_id";
+            this.colEnderecoId.Name = "colEnderecoId";
+            this.colEnderecoId.ReadOnly = true;
+            this.colEnderecoId.Visible = false;
             // 
             // label3
             // 
@@ -534,6 +652,7 @@
             // 
             // txtClienteEnderecoCEP
             // 
+            this.txtClienteEnderecoCEP.AccessibleName = "CEP";
             this.txtClienteEnderecoCEP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtClienteEnderecoCEP.Location = new System.Drawing.Point(595, 124);
             this.txtClienteEnderecoCEP.Name = "txtClienteEnderecoCEP";
@@ -549,6 +668,7 @@
             // 
             // txtClienteCpfCnpj
             // 
+            this.txtClienteCpfCnpj.AccessibleName = "CPF / CNPJ";
             this.txtClienteCpfCnpj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtClienteCpfCnpj.Location = new System.Drawing.Point(496, 54);
             this.txtClienteCpfCnpj.Name = "txtClienteCpfCnpj";
@@ -608,6 +728,7 @@
             // 
             // txtClienteEmail
             // 
+            this.txtClienteEmail.AccessibleName = "E-mail";
             this.txtClienteEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtClienteEmail.Location = new System.Drawing.Point(22, 120);
@@ -623,6 +744,7 @@
             // 
             // txtClienteNome
             // 
+            this.txtClienteNome.AccessibleName = "Nome Completo";
             this.txtClienteNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtClienteNome.Location = new System.Drawing.Point(22, 55);
@@ -787,13 +909,22 @@
             // 
             // dgvProdutoPesquisa
             // 
+            this.dgvProdutoPesquisa.AllowUserToAddRows = false;
             this.dgvProdutoPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProdutoPesquisa.BackgroundColor = System.Drawing.Color.Linen;
             this.dgvProdutoPesquisa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdutoPesquisa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colProduto,
+            this.colPrecoUnitario,
+            this.colEstoque,
+            this.colDescricao,
+            this.colId});
             this.dgvProdutoPesquisa.Location = new System.Drawing.Point(20, 408);
             this.dgvProdutoPesquisa.Name = "dgvProdutoPesquisa";
-            this.dgvProdutoPesquisa.Size = new System.Drawing.Size(1157, 116);
+            this.dgvProdutoPesquisa.ReadOnly = true;
+            this.dgvProdutoPesquisa.Size = new System.Drawing.Size(1157, 139);
             this.dgvProdutoPesquisa.TabIndex = 19;
             // 
             // label14
@@ -961,6 +1092,7 @@
             this.btnProdutoRemover.TabIndex = 17;
             this.btnProdutoRemover.Values.Image = global::TestePraticoDeMaria.Properties.Resources.remover__2_;
             this.btnProdutoRemover.Values.Text = " Remover";
+            this.btnProdutoRemover.Click += new System.EventHandler(this.btnProdutoRemover_Click);
             // 
             // btnProdutoSalvar
             // 
@@ -977,6 +1109,7 @@
             this.btnProdutoSalvar.TabIndex = 15;
             this.btnProdutoSalvar.Values.Image = global::TestePraticoDeMaria.Properties.Resources.Salvar;
             this.btnProdutoSalvar.Values.Text = "\tSalvar";
+            this.btnProdutoSalvar.Click += new System.EventHandler(this.btnProdutoSalvar_Click);
             // 
             // btnProdutoNovo
             // 
@@ -993,6 +1126,7 @@
             this.btnProdutoNovo.TabIndex = 14;
             this.btnProdutoNovo.Values.Image = global::TestePraticoDeMaria.Properties.Resources.arquivo__1_;
             this.btnProdutoNovo.Values.Text = "\tNovo";
+            this.btnProdutoNovo.Click += new System.EventHandler(this.btnProdutoNovo_Click);
             // 
             // txtProdutoPesquisa
             // 
@@ -1008,6 +1142,7 @@
             this.txtProdutoPesquisa.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProdutoPesquisa.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.txtProdutoPesquisa.TabIndex = 14;
+            this.txtProdutoPesquisa.TextChanged += new System.EventHandler(this.txtProdutoPesquisa_TextChanged);
             // 
             // btnProdutoPesquisar
             // 
@@ -1051,7 +1186,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.label34);
             this.groupBox4.Controls.Add(this.label29);
@@ -1072,18 +1207,18 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(27, 123);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(79, 16);
+            this.label34.Size = new System.Drawing.Size(48, 16);
             this.label34.TabIndex = 2;
-            this.label34.Text = "Valor Total:";
+            this.label34.Text = "Saldo:";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(27, 71);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(79, 16);
+            this.label29.Size = new System.Drawing.Size(81, 16);
             this.label29.TabIndex = 2;
-            this.label29.Text = "Valor Total:";
+            this.label29.Text = "Valor Pago:";
             // 
             // label31
             // 
@@ -1096,6 +1231,8 @@
             // 
             // kryptonTextBox5
             // 
+            this.kryptonTextBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonTextBox5.Location = new System.Drawing.Point(19, 142);
             this.kryptonTextBox5.Name = "kryptonTextBox5";
             this.kryptonTextBox5.Size = new System.Drawing.Size(245, 28);
@@ -1109,6 +1246,8 @@
             // 
             // kryptonTextBox4
             // 
+            this.kryptonTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonTextBox4.Location = new System.Drawing.Point(19, 90);
             this.kryptonTextBox4.Name = "kryptonTextBox4";
             this.kryptonTextBox4.Size = new System.Drawing.Size(245, 28);
@@ -1122,6 +1261,8 @@
             // 
             // txtPedidoValorTotal
             // 
+            this.txtPedidoValorTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPedidoValorTotal.Location = new System.Drawing.Point(19, 40);
             this.txtPedidoValorTotal.Name = "txtPedidoValorTotal";
             this.txtPedidoValorTotal.Size = new System.Drawing.Size(245, 28);
@@ -1289,7 +1430,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPedidoProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedidoProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colProduto,
+            this.colProdutoVenda,
             this.colQuantiade,
             this.colValorUnitario,
             this.colValorTotal});
@@ -1298,31 +1439,6 @@
             this.dgvPedidoProdutos.ReadOnly = true;
             this.dgvPedidoProdutos.Size = new System.Drawing.Size(870, 155);
             this.dgvPedidoProdutos.TabIndex = 25;
-            // 
-            // colProduto
-            // 
-            this.colProduto.HeaderText = "Produto";
-            this.colProduto.Name = "colProduto";
-            this.colProduto.ReadOnly = true;
-            // 
-            // colQuantiade
-            // 
-            this.colQuantiade.HeaderText = "Quantidade";
-            this.colQuantiade.Name = "colQuantiade";
-            this.colQuantiade.ReadOnly = true;
-            // 
-            // colValorUnitario
-            // 
-            this.colValorUnitario.HeaderText = "Valor Unitário";
-            this.colValorUnitario.Name = "colValorUnitario";
-            this.colValorUnitario.ReadOnly = true;
-            this.colValorUnitario.Width = 150;
-            // 
-            // colValorTotal
-            // 
-            this.colValorTotal.HeaderText = "Valor Total";
-            this.colValorTotal.Name = "colValorTotal";
-            this.colValorTotal.ReadOnly = true;
             // 
             // label27
             // 
@@ -1340,7 +1456,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.kryptonButton5);
-            this.groupBox3.Controls.Add(this.cmdPedidoProdutos);
+            this.groupBox3.Controls.Add(this.cmbPedidoProdutos);
             this.groupBox3.Controls.Add(this.kryptonButton4);
             this.groupBox3.Controls.Add(this.label23);
             this.groupBox3.Controls.Add(this.label19);
@@ -1367,6 +1483,7 @@
             // 
             // kryptonButton5
             // 
+            this.kryptonButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonButton5.Location = new System.Drawing.Point(665, 98);
             this.kryptonButton5.Name = "kryptonButton5";
             this.kryptonButton5.Size = new System.Drawing.Size(184, 48);
@@ -1381,22 +1498,25 @@
             this.kryptonButton5.Values.Image = global::TestePraticoDeMaria.Properties.Resources.remover__2_;
             this.kryptonButton5.Values.Text = " Remover";
             // 
-            // cmdPedidoProdutos
+            // cmbPedidoProdutos
             // 
-            this.cmdPedidoProdutos.DropDownWidth = 210;
-            this.cmdPedidoProdutos.Location = new System.Drawing.Point(22, 38);
-            this.cmdPedidoProdutos.Name = "cmdPedidoProdutos";
-            this.cmdPedidoProdutos.Size = new System.Drawing.Size(624, 36);
-            this.cmdPedidoProdutos.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.cmbPedidoProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbPedidoProdutos.DropDownWidth = 210;
+            this.cmbPedidoProdutos.Location = new System.Drawing.Point(22, 38);
+            this.cmbPedidoProdutos.Name = "cmbPedidoProdutos";
+            this.cmbPedidoProdutos.Size = new System.Drawing.Size(624, 36);
+            this.cmbPedidoProdutos.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.cmdPedidoProdutos.StateCommon.ComboBox.Border.Rounding = 18;
-            this.cmdPedidoProdutos.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdPedidoProdutos.StateCommon.ComboBox.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.cmdPedidoProdutos.TabIndex = 5;
+            this.cmbPedidoProdutos.StateCommon.ComboBox.Border.Rounding = 18;
+            this.cmbPedidoProdutos.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPedidoProdutos.StateCommon.ComboBox.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.cmbPedidoProdutos.TabIndex = 5;
             // 
             // kryptonButton4
             // 
+            this.kryptonButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonButton4.Location = new System.Drawing.Point(462, 98);
             this.kryptonButton4.Name = "kryptonButton4";
             this.kryptonButton4.Size = new System.Drawing.Size(184, 48);
@@ -1413,6 +1533,7 @@
             // 
             // label23
             // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(214, 94);
             this.label23.Name = "label23";
@@ -1441,11 +1562,10 @@
             // 
             // txtPedidoProdutoValorTotal
             // 
-            this.txtPedidoProdutoValorTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPedidoProdutoValorTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPedidoProdutoValorTotal.Location = new System.Drawing.Point(200, 113);
             this.txtPedidoProdutoValorTotal.Name = "txtPedidoProdutoValorTotal";
-            this.txtPedidoProdutoValorTotal.Size = new System.Drawing.Size(154, 33);
+            this.txtPedidoProdutoValorTotal.Size = new System.Drawing.Size(239, 33);
             this.txtPedidoProdutoValorTotal.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -1482,6 +1602,11 @@
             this.nudPedidoProdutoQuantidade.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.nudPedidoProdutoQuantidade.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.nudPedidoProdutoQuantidade.TabIndex = 7;
+            this.nudPedidoProdutoQuantidade.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // groupBox2
             // 
@@ -1535,6 +1660,8 @@
             // 
             // cmbPedidoClientes
             // 
+            this.cmbPedidoClientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbPedidoClientes.DropDownWidth = 210;
             this.cmbPedidoClientes.Location = new System.Drawing.Point(533, 52);
             this.cmbPedidoClientes.Name = "cmbPedidoClientes";
@@ -1594,8 +1721,6 @@
             // 
             // kryptonTextBox3
             // 
-            this.kryptonTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonTextBox3.Enabled = false;
             this.kryptonTextBox3.Location = new System.Drawing.Point(416, 55);
             this.kryptonTextBox3.Name = "kryptonTextBox3";
@@ -1610,8 +1735,6 @@
             // 
             // kryptonTextBox2
             // 
-            this.kryptonTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonTextBox2.Enabled = false;
             this.kryptonTextBox2.Location = new System.Drawing.Point(299, 55);
             this.kryptonTextBox2.Name = "kryptonTextBox2";
@@ -1626,8 +1749,6 @@
             // 
             // kryptonTextBox1
             // 
-            this.kryptonTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonTextBox1.Enabled = false;
             this.kryptonTextBox1.Location = new System.Drawing.Point(182, 55);
             this.kryptonTextBox1.Name = "kryptonTextBox1";
@@ -1642,8 +1763,6 @@
             // 
             // txtPedidoNumero
             // 
-            this.txtPedidoNumero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPedidoNumero.Enabled = false;
             this.txtPedidoNumero.Location = new System.Drawing.Point(22, 55);
             this.txtPedidoNumero.Name = "txtPedidoNumero";
@@ -1877,118 +1996,71 @@
             this.btnConfiguracao.Values.Text = "";
             this.btnConfiguracao.Click += new System.EventHandler(this.btnConfiguracao_Click);
             // 
-            // colNome
+            // colProdutoVenda
             // 
-            this.colNome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNome.DataPropertyName = "nome";
-            this.colNome.HeaderText = "Nome";
-            this.colNome.MinimumWidth = 250;
-            this.colNome.Name = "colNome";
-            this.colNome.ReadOnly = true;
+            this.colProdutoVenda.HeaderText = "Produto";
+            this.colProdutoVenda.Name = "colProdutoVenda";
+            this.colProdutoVenda.ReadOnly = true;
             // 
-            // colCpfCnpj
+            // colQuantiade
             // 
-            this.colCpfCnpj.DataPropertyName = "cpfcnpj";
-            this.colCpfCnpj.HeaderText = "CPF / CNPJ";
-            this.colCpfCnpj.Name = "colCpfCnpj";
-            this.colCpfCnpj.ReadOnly = true;
-            this.colCpfCnpj.Width = 150;
+            this.colQuantiade.HeaderText = "Quantidade";
+            this.colQuantiade.Name = "colQuantiade";
+            this.colQuantiade.ReadOnly = true;
             // 
-            // colPessoaJuridica
+            // colValorUnitario
             // 
-            this.colPessoaJuridica.DataPropertyName = "PessoaJuridica";
-            this.colPessoaJuridica.HeaderText = "Pessoa Juridica";
-            this.colPessoaJuridica.Name = "colPessoaJuridica";
-            this.colPessoaJuridica.ReadOnly = true;
-            this.colPessoaJuridica.Width = 150;
+            this.colValorUnitario.HeaderText = "Valor Unitário";
+            this.colValorUnitario.Name = "colValorUnitario";
+            this.colValorUnitario.ReadOnly = true;
+            this.colValorUnitario.Width = 150;
             // 
-            // colEmail
+            // colValorTotal
             // 
-            this.colEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colEmail.DataPropertyName = "email";
-            this.colEmail.HeaderText = "E-mail";
-            this.colEmail.Name = "colEmail";
-            this.colEmail.ReadOnly = true;
-            this.colEmail.Width = 69;
+            this.colValorTotal.HeaderText = "Valor Total";
+            this.colValorTotal.Name = "colValorTotal";
+            this.colValorTotal.ReadOnly = true;
             // 
-            // colTelefoneCelular
+            // colProduto
             // 
-            this.colTelefoneCelular.DataPropertyName = "telefone";
-            this.colTelefoneCelular.HeaderText = "Telefone / Celular";
-            this.colTelefoneCelular.Name = "colTelefoneCelular";
-            this.colTelefoneCelular.ReadOnly = true;
-            this.colTelefoneCelular.Width = 150;
+            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colProduto.DataPropertyName = "produto";
+            this.colProduto.HeaderText = "Produto";
+            this.colProduto.MinimumWidth = 150;
+            this.colProduto.Name = "colProduto";
+            this.colProduto.ReadOnly = true;
             // 
-            // colCep
+            // colPrecoUnitario
             // 
-            this.colCep.DataPropertyName = "cep";
-            this.colCep.HeaderText = "CEP";
-            this.colCep.Name = "colCep";
-            this.colCep.ReadOnly = true;
+            this.colPrecoUnitario.DataPropertyName = "precounitario";
+            this.colPrecoUnitario.HeaderText = "Preço";
+            this.colPrecoUnitario.Name = "colPrecoUnitario";
+            this.colPrecoUnitario.ReadOnly = true;
             // 
-            // colLogradouro
+            // colEstoque
             // 
-            this.colLogradouro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colLogradouro.DataPropertyName = "logradouro";
-            this.colLogradouro.HeaderText = "Logradouro";
-            this.colLogradouro.Name = "colLogradouro";
-            this.colLogradouro.ReadOnly = true;
-            this.colLogradouro.Width = 96;
+            this.colEstoque.DataPropertyName = "quantidadeestoque";
+            this.colEstoque.HeaderText = "Quantidade em Estoque";
+            this.colEstoque.Name = "colEstoque";
+            this.colEstoque.ReadOnly = true;
+            this.colEstoque.Width = 180;
             // 
-            // colNumero
+            // colDescricao
             // 
-            this.colNumero.DataPropertyName = "numero";
-            this.colNumero.HeaderText = "Número";
-            this.colNumero.Name = "colNumero";
-            this.colNumero.ReadOnly = true;
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescricao.DataPropertyName = "descricao";
+            this.colDescricao.HeaderText = "Descrição";
+            this.colDescricao.MinimumWidth = 100;
+            this.colDescricao.Name = "colDescricao";
+            this.colDescricao.ReadOnly = true;
             // 
-            // colComplemento
+            // colId
             // 
-            this.colComplemento.DataPropertyName = "numeroComplemento";
-            this.colComplemento.HeaderText = "Complemento";
-            this.colComplemento.Name = "colComplemento";
-            this.colComplemento.ReadOnly = true;
-            // 
-            // colBairro
-            // 
-            this.colBairro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colBairro.DataPropertyName = "bairro";
-            this.colBairro.HeaderText = "Bairro";
-            this.colBairro.Name = "colBairro";
-            this.colBairro.ReadOnly = true;
-            this.colBairro.Width = 66;
-            // 
-            // colLocalidade
-            // 
-            this.colLocalidade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colLocalidade.DataPropertyName = "localidade";
-            this.colLocalidade.HeaderText = "Localidade";
-            this.colLocalidade.Name = "colLocalidade";
-            this.colLocalidade.ReadOnly = true;
-            this.colLocalidade.Width = 94;
-            // 
-            // ColEstado
-            // 
-            this.ColEstado.DataPropertyName = "uf";
-            this.ColEstado.HeaderText = "Estado";
-            this.ColEstado.Name = "ColEstado";
-            this.ColEstado.ReadOnly = true;
-            // 
-            // colClienteId
-            // 
-            this.colClienteId.DataPropertyName = "cliente_id";
-            this.colClienteId.HeaderText = "Cliente_id";
-            this.colClienteId.Name = "colClienteId";
-            this.colClienteId.ReadOnly = true;
-            this.colClienteId.Visible = false;
-            // 
-            // colEnderecoId
-            // 
-            this.colEnderecoId.DataPropertyName = "endereco_id";
-            this.colEnderecoId.HeaderText = "Endereco_id";
-            this.colEnderecoId.Name = "colEnderecoId";
-            this.colEnderecoId.ReadOnly = true;
-            this.colEnderecoId.Visible = false;
+            this.colId.DataPropertyName = "id";
+            this.colId.HeaderText = "id";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
             // 
             // frmMenuPrincipal
             // 
@@ -2045,7 +2117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoProdutos)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdPedidoProdutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPedidoProdutos)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPedidoClientes)).EndInit();
@@ -2133,7 +2205,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label20;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoNumero;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmdPedidoProdutos;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbPedidoProdutos;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbPedidoClientes;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label21;
@@ -2170,10 +2242,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton8;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colQuantiade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colValorUnitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colValorTotal;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnConfiguracao;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;
@@ -2200,5 +2268,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn colClienteId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEnderecoId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdutoVenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQuantiade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValorUnitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValorTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecoUnitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstoque;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
     }
 }
