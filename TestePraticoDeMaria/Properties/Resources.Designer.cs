@@ -63,6 +63,16 @@ namespace TestePraticoDeMaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Adicionar {
+            get {
+                object obj = ResourceManager.GetObject("Adicionar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arquivo__1_ {
             get {
                 object obj = ResourceManager.GetObject("arquivo (1)", resourceCulture);
@@ -83,9 +93,59 @@ namespace TestePraticoDeMaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap configuracao {
+            get {
+                object obj = ResourceManager.GetObject("configuracao", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dinheiro__1_ {
+            get {
+                object obj = ResourceManager.GetObject("dinheiro (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap grafico__1_ {
+            get {
+                object obj = ResourceManager.GetObject("grafico (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pacote {
+            get {
+                object obj = ResourceManager.GetObject("pacote", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pesquisar__2_ {
             get {
                 object obj = ResourceManager.GetObject("pesquisar (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rede__2_ {
+            get {
+                object obj = ResourceManager.GetObject("rede (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

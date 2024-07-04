@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
 
-namespace TestePraticoDeMaria.Classes
+namespace TestePraticoDeMaria.Classes.Utils
 {
     public class clsValidadorCpfCNPJ
     {
@@ -30,8 +30,20 @@ namespace TestePraticoDeMaria.Classes
                 return CalcularDigitoVerificadorCPF(documento);
             else if (documento.Length == 14)
                 return CalcularDigitoVerificadorCNPJ(documento);
-         
+
             return string.Empty;
+        }
+
+        public string FormatarCPFCNPJ(string documento)
+        {
+            documento = Regex.Replace(documento, "[^0-9]", "");
+
+            if (documento.Length <= 11)
+                return FormatarCPF(documento);
+            else if (documento.Length <= 14)
+                return FormatarCNPJ(documento);
+
+            return documento;
         }
 
         private bool VerificaCPF(string cpf)
@@ -136,6 +148,44 @@ namespace TestePraticoDeMaria.Classes
             int digitoVerificador2 = resto < 2 ? 0 : 11 - resto;
 
             return digitoVerificador1.ToString() + digitoVerificador2.ToString();
+        }
+
+        private string FormatarCPF(string text)
+        {
+            if (text.Length > 9)
+            {
+                return text.Insert(9, "-").Insert(6, ".").Insert(3, ".");
+            }
+            else if (text.Length > 6)
+            {
+                return text.Insert(6, ".").Insert(3, ".");
+            }
+            else if (text.Length > 3)
+            {
+                return text.Insert(3, ".");
+            }
+            return text;
+        }
+
+        private string FormatarCNPJ(string text)
+        {
+            if (text.Length > 12)
+            {
+                return text.Insert(12, "-").Insert(8, "/").Insert(5, ".").Insert(2, ".");
+            }
+            else if (text.Length > 8)
+            {
+                return text.Insert(8, "/").Insert(5, ".").Insert(2, ".");
+            }
+            else if (text.Length > 5)
+            {
+                return text.Insert(5, ".").Insert(2, ".");
+            }
+            else if (text.Length > 2)
+            {
+                return text.Insert(2, ".");
+            }
+            return text;
         }
 
     }
