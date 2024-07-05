@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
@@ -14,6 +15,8 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using ComponentFactory.Krypton.Toolkit;
+using Microsoft.Reporting.WinForms;
+using Microsoft.ReportingServices.Interfaces;
 using TestePraticoDeMaria.Classes;
 using TestePraticoDeMaria.Classes.Integracoes;
 using TestePraticoDeMaria.Classes.Utils;
@@ -34,17 +37,21 @@ namespace TestePraticoDeMaria.Forms
         clsCliente cliente = new clsCliente(null, null, null, null, false);
         clsendereco endereco = new clsendereco(null, null, 0, null, null, null, null, 0);
         clsProduto produto = new clsProduto(null, 0, 0, null);
+        clsPedido pedido = new clsPedido(0, DateTime.MinValue, DateTime.MinValue, DateTime.MinValue, false, false, null, 0);
+        clsCaixa caixa = new clsCaixa();
         clsUtilisForm utilisForm = new clsUtilisForm();
         clsValidadorCpfCNPJ validadorCpfCNPJ = new clsValidadorCpfCNPJ();
         clsCorreios correios = new clsCorreios();
         clsIBGE ibge = new clsIBGE();
         clsUtilsConsultas consultas = new clsUtilsConsultas();
+        clsRelatorios relatorios = new clsRelatorios();
 
         //Variaveis
         DataTable dtClientes = new DataTable();
         DataTable dtProdutos = new DataTable();
         DataTable dtListaClientes = new DataTable();
         DataTable dtListaProdutos = new DataTable();
+        DataTable dtPedidoProdutos = new DataTable();
 
         #endregion
 
@@ -219,7 +226,6 @@ namespace TestePraticoDeMaria.Forms
             if (dtProdutos.Rows.Count > 0) { dgvProdutoPesquisa.DataSource = dtProdutos; }
 
         }
-
         private void CarregarListaProdutos()
         {
             dtListaProdutos = consultas.ObterListaCompletaProdutos();
@@ -227,20 +233,333 @@ namespace TestePraticoDeMaria.Forms
             cmbPedidoProdutos.DisplayMember = "produto";
             cmbPedidoProdutos.DataSource = dtListaProdutos;
             cmbPedidoProdutos.SelectedIndex = -1;
+            cmbPedidoProdutos.SelectedIndex = -1;
         }
-
         private void SalvarProduto()
         {
-            if (produto.Id != 0)
+            if (produto.id != 0)
             {
-
+                produto.CarregarProduto(txtProdutoNome.Text, Convert.ToInt32(nudProdutoQuantidadeEstoque.Value), Convert.ToDecimal(txtProdutoPreco.Text), txtProdutoDescricao.Text, produto.id);
+                produto.AtualizarOuCadastrarProduto();
             }
             else
             {
                 produto = new clsProduto(txtProdutoNome.Text, Convert.ToInt32(nudProdutoQuantidadeEstoque.Value), Convert.ToDecimal(txtProdutoPreco.Text), txtProdutoDescricao.Text);
                 produto.AtualizarOuCadastrarProduto();
-                
+
             }
+        }
+        private void RemoverProduto()
+        {
+            if (produto.id == 0) { return; }
+
+            DialogResult result = MessageBox.Show("Atenção! Remover o produto poderá resultar na perca todo o histórico, isso pode afetar os relatórios! \n deseja continuar?", "ATENÇÃO!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                if (produto.Deletar()) { MessageBox.Show("Produto Removido com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+                else { MessageBox.Show("Falha ao remover Produto! se necessário contate o suporte", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+        }
+        private void CapturarDadosProduto(DataGridViewRow row)
+        {
+
+            int id = Convert.ToInt32(row.Cells["colId"].Value);
+            string nome = row.Cells["colProduto"].Value.ToString();
+            string descricao = row.Cells["colDescricao"].Value.ToString();
+            int quantidade = Convert.ToInt32(row.Cells["colEstoque"].Value);
+            decimal valorUnitario = Convert.ToDecimal(row.Cells["colPrecoUnitario"].Value);
+
+            produto.CarregarProduto(nome, quantidade, valorUnitario, descricao, id);
+        }
+        private void CarregarDadosProduto()
+        {
+            txtProdutoNome.Text = produto.produto;
+            txtProdutoDescricao.Text = produto.descricao;
+            txtProdutoPreco.Text = produto.precoUnitario.ToString();
+            nudProdutoQuantidadeEstoque.Value = produto.quantidadeEstoque;
+        }
+        private void PesquisarProduto()
+        {
+            dtProdutos = produto.PesquisarProduto(txtProdutoPesquisa.Text);
+            if (dtProdutos.Rows.Count > 0) { dgvProdutoPesquisa.DataSource = dtProdutos; }
+            else { MessageBox.Show("Produto não Localizado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+        }
+
+        #endregion
+
+        #region MetodosVendas
+
+        private void CalcularTotalProduto()
+        {
+            decimal valor = produto.precoUnitario * nudPedidoProdutoQuantidade.Value;
+            txtPedidoProdutoValorTotal.Text = valor.ToString("F2");
+        }
+        private void SalvarPedido()
+        {
+
+            if (pedido.id == 0)
+            {
+                DialogResult result = MessageBox.Show("Deseja Abrir um novo pedido?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    if (cmbPedidoClientes.SelectedValue == null && cliente.id == 0)
+                    {
+                        MessageBox.Show("Selecione um cliente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else if (cliente.id != 0)
+                    {
+                        cmbPedidoClientes.SelectedValue = cliente.id;
+                    }
+
+                    txtPedidoDataInclusao.Text = DateTime.Now.ToShortDateString();
+                    pedido = new clsPedido(cliente.id, DateTime.Now, DateTime.MinValue, DateTime.MinValue, false, false, null, 0);
+                    pedido.AtualizarOuCadastrarPedido();
+                    txtPedidoNumero.Text = pedido.id.ToString();
+                }
+                else { return; }
+            }
+            else
+            {
+                pedido.CarregarPedido(cliente.id, txtPedidoObservacao.Text, Convert.ToDecimal(txtPedidoValorTotal.Text));
+                pedido.AtualizarOuCadastrarPedido();
+            }
+
+            MessageBox.Show("Pedido Salvo!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void FinalizarPedido()
+        {
+            if (pedido.id == 0) { return; }
+
+            if (pedido.cancelado)
+            {
+                MessageBox.Show("Pedido cancelado!\n não é possivel finalizar um pedido cancelado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+
+            DialogResult result = MessageBox.Show("Deseja Finalizar o pedido?\nApós finalizado não é possivel editar-lo!", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (!AtualizarEstoque()) { return; }
+                pedido.finalizar(); txtPedidoDataFinalizado.Text = DateTime.Now.ToShortDateString();
+                btnPedidoSalvar_Click(null, null);
+
+            }
+            else { return; }
+        }
+        private void CancelarPedido()
+        {
+            if (pedido.id == 0) { return; }
+            if (pedido.finalizado)
+            {
+                MessageBox.Show("Pedido finalizado!\n não é possivel cancelar um pedido finalizado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+
+            DialogResult result = MessageBox.Show("Deseja cancelar o pedido?\nApós cancelado não é possivel recupera-lo!", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                pedido.Cancelar(); txtPedidoDataCancelado.Text = DateTime.Now.ToShortDateString();
+                btnPedidoSalvar_Click(null, null);
+            }
+            else { return; }
+
+        }
+        private void PesquisarPedido()
+        {
+            btnPedidoNovo_Click(null, null);
+            if (string.IsNullOrEmpty(txtPedidoPesquisa.Text)) { return; }
+
+            if (pedido.Pesquisar(Convert.ToInt32(txtPedidoPesquisa.Text)))
+            {
+                txtPedidoNumero.Text = pedido.id.ToString();
+                txtPedidoDataInclusao.Text = pedido.dataPedido.ToShortDateString();
+                txtPedidoObservacao.Text = pedido.observacao;
+                cmbPedidoClientes.SelectedValue = pedido.cliente_id;
+
+                if (pedido.finalizado) { txtPedidoDataFinalizado.Text = pedido.dataConcluido.ToShortDateString(); }
+                if (pedido.cancelado) { txtPedidoDataCancelado.Text = pedido.dataCancelado.ToShortDateString(); }
+
+                CarregarListaItensPedido();
+                SomarColunaValorTotal();
+                AtualizarResumo();
+            }
+            else
+            {
+                MessageBox.Show("Pedido não localizado!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private void CarregarListaItensPedido()
+        {
+            dtPedidoProdutos = pedido.ObterListaProdutosPedido();
+            dgvPedidoProdutos.DataSource = dtPedidoProdutos;
+
+        }
+        private void SomarColunaValorTotal()
+        {
+            decimal soma = 0;
+
+            foreach (DataGridViewRow row in dgvPedidoProdutos.Rows)
+            {
+                if (row.Cells["colValorTotal"].Value != null && row.Cells["colValorTotal"].Value != DBNull.Value)
+                {
+                    decimal valor;
+                    if (decimal.TryParse(row.Cells["colValorTotal"].Value.ToString(), out valor))
+                    {
+                        soma += valor;
+                    }
+                }
+            }
+
+            txtPedidoValorTotal.Text = soma.ToString("F2");
+
+        }
+        private void CapturarDadosPedidoProduto(DataGridViewRow row)
+        {
+            cmbPedidoProdutos.SelectedValue = Convert.ToInt32(row.Cells["colProdutoId"].Value);
+            txtPedidoProdutoValorTotal.Text = row.Cells["colValorTotal"].Value.ToString();
+            nudPedidoProdutoQuantidade.Value = Convert.ToDecimal(row.Cells["colQuantiade"].Value);
+
+        }
+        private void PesquisarPedidoProximoOuAnterior(bool proximo)
+        {
+            int filtro = pedido.id;
+
+            if (proximo) { filtro++; }
+            else { filtro--; }
+
+            txtPedidoPesquisa.Text = filtro.ToString();
+            PesquisarPedido();
+            txtPedidoPesquisa.Text = string.Empty;
+
+        }
+        private void AdicionarItemPedido()
+        {
+            if (pedido.id == 0)
+            {
+                MessageBox.Show("O pedido ainda não foi aberto!\nSó é possivel adicionar produtos em um pedido aberto!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+
+            if (pedido.cancelado)
+            {
+                MessageBox.Show("O pedido foi cancelado!\nNão é possivel adicionar produtos em um pedido cancelado!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            if (pedido.finalizado)
+            {
+                MessageBox.Show("O pedido foi finalizado!\nNão é possivel adicionar produtos em um pedido finalizado!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            if (produto.id == 0)
+            {
+                MessageBox.Show("Selecione um Produto!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbPedidoProdutos.Focus();
+                return;
+            }
+            if (pedido.AdicionarProdutoNoPedido(produto.id, Convert.ToInt32(nudPedidoProdutoQuantidade.Value), produto.precoUnitario, Convert.ToDecimal(txtPedidoProdutoValorTotal.Text)))
+            {
+                cmbPedidoProdutos.SelectedIndex = -1;
+                nudPedidoProdutoQuantidade.Value = 1;
+                cmbPedidoProdutos.SelectedIndex = -1;
+                produto.Limpar();
+                utilisForm.LimparTextBoxes(txtPedidoProdutoValorUnitario, txtPedidoProdutoValorTotal);
+                CarregarListaItensPedido();
+            }
+            else
+            {
+                MessageBox.Show("Não foi possivel adicionar/Atualizar o produto!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        private void RemoverItemPedido()
+        {
+            if (pedido.id == 0)
+            {
+                MessageBox.Show("Nenhum Pedido Selecionado!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+
+            if (pedido.cancelado)
+            {
+                MessageBox.Show("O pedido foi cancelado!\nNão é possivel remover produtos em um pedido cancelado!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            if (pedido.finalizado)
+            {
+                MessageBox.Show("O pedido foi finalizado!\nNão é possivel remover produtos em um pedido finalizado!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+            }
+            if (produto.id == 0)
+            {
+                MessageBox.Show("Selecione um Produto!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dgvPedidoProdutos.Focus();
+                return;
+            }
+            if (pedido.RemoverProdutoNoPedido(produto.id))
+            {
+                cmbPedidoProdutos.SelectedIndex = -1;
+                nudPedidoProdutoQuantidade.Value = 1;
+                cmbPedidoProdutos.SelectedIndex = -1;
+                produto.Limpar();
+                utilisForm.LimparTextBoxes(txtPedidoProdutoValorUnitario, txtPedidoProdutoValorTotal);
+                CarregarListaItensPedido();
+            }
+            else
+            {
+                MessageBox.Show("Não foi possivel Remover o produto!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+        private void CarregarProdutoSelecionado()
+        {
+            if (cmbPedidoProdutos.SelectedIndex != -1)
+            {
+                produto.CarregarProduto(Convert.ToInt32(cmbPedidoProdutos.SelectedValue));
+                txtPedidoProdutoValorUnitario.Text = produto.precoUnitario.ToString("F2");
+                txtPedidoProdutoValorTotal.Text = produto.precoUnitario.ToString("F2");
+                if (produto.quantidadeEstoque > 0)
+                {
+                    nudPedidoProdutoQuantidade.Value = 1;
+                }
+               
+            }
+        }
+        private void AtualizarResumo()
+        {
+            decimal valorNoCaixa = caixa.ValorNoCaixa(pedido.id);
+            decimal saldo = 0;
+            if (valorNoCaixa > 0) { saldo = valorNoCaixa - pedido.valorTotalPedido; }
+
+            txtPedidoSaldo.Text = saldo.ToString("F2");
+            txtPedidoValorPago.Text = valorNoCaixa.ToString("F2");
+
+
+            if (saldo < 0) { txtPedidoSaldo.StateCommon.Content.Color1 = Color.Red; }
+            else if (saldo > 0) { txtPedidoSaldo.StateCommon.Content.Color1 = Color.Green; }
+            else { txtPedidoSaldo.StateCommon.Content.Color1 = Color.Black; }
+        }
+        private bool AtualizarEstoque()
+        {
+            if (pedido.id == 0) { return false; }
+
+            dtListaProdutos = pedido.ObterListaProdutosPedido();
+            int quantidadeSaida = 0;
+            int quantidadeEstoque = 0;
+            int estoqueAtual = 0;
+            foreach (DataRow row in dtListaProdutos.Rows)
+            {
+                produto.CarregarProduto(Convert.ToInt32(row["produtos_id"]));
+                quantidadeEstoque = produto.quantidadeEstoque;
+                quantidadeSaida = Convert.ToInt32(row["quantidade"]);
+
+                if (quantidadeSaida > quantidadeEstoque)
+                {
+                    MessageBox.Show($"Não é possivel finalizar o pedido pois a quantidade de {produto.produto} é maior que a em estoque!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                estoqueAtual = quantidadeEstoque - quantidadeSaida;
+                produto.CarregarProduto(produto.produto, estoqueAtual, produto.precoUnitario, produto.descricao, produto.id);
+                produto.AtualizarOuCadastrarProduto();
+            }
+
+            return true;
+
         }
 
         #endregion
@@ -253,15 +572,20 @@ namespace TestePraticoDeMaria.Forms
         {
             dgvClientePesquisa.AutoGenerateColumns = false;
             dgvProdutoPesquisa.AutoGenerateColumns = false;
-            this.reportViewer1.RefreshReport();
-            this.reportViewer1.RefreshReport();
+            dgvPedidoProdutos.AutoGenerateColumns = false;
+
+            this.rvwRelatorios.Refresh();
+
             PreencherComboBoxEstados();
             CarregarGridClientes();
             CarregarGridProdutos();
             CarregarListaClientes();
             CarregarListaProdutos();
 
-
+            btnPedidoNovo_Click(null, null);
+            produto.Limpar();
+            cliente.Limpar();
+            produto.Limpar();
         }
 
         #region Menu
@@ -326,7 +650,7 @@ namespace TestePraticoDeMaria.Forms
             else
             {
                 tabInterface.SelectedTab = tabInterface.TabPages["tpVenda"];
-               cmbPedidoClientes.SelectedValue = cliente.id;
+                cmbPedidoClientes.SelectedValue = cliente.id;
 
             }
         }
@@ -380,33 +704,220 @@ namespace TestePraticoDeMaria.Forms
 
         #endregion
 
-
         #region EventosProduto
         private void btnProdutoNovo_Click(object sender, EventArgs e)
         {
+            produto.Limpar();
             utilisForm.LimparTextBoxes(txtProdutoNome, txtProdutoPreco, txtProdutoDescricao);
             nudProdutoQuantidadeEstoque.Value = 0;
+
         }
         private void btnProdutoSalvar_Click(object sender, EventArgs e)
         {
+            if (!utilisForm.VerificarTextBoxesObrigatorios(txtProdutoNome, txtProdutoPreco)) { return; }
             SalvarProduto();
             CarregarListaProdutos();
             CarregarGridProdutos();
             btnProdutoNovo_Click(null, null);
         }
-
         private void btnProdutoRemover_Click(object sender, EventArgs e)
         {
+            RemoverProduto();
             CarregarListaProdutos();
             CarregarGridProdutos();
             btnProdutoNovo_Click(null, null);
         }
-
         private void txtProdutoPesquisa_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtProdutoPesquisa.Text)) { CarregarGridProdutos(); }
         }
+        private void dgvProdutoPesquisa_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvProdutoPesquisa.Rows[e.RowIndex];
+                CapturarDadosProduto(row);
+                CarregarDadosProduto();
+            }
+        }
+        private void btnProdutoPesquisar_Click(object sender, EventArgs e)
+        {
+            PesquisarProduto();
+        }
+        private void txtProdutoPreco_TextChanged(object sender, EventArgs e)
+        {
+            txtProdutoPreco.Text = utilisForm.ValidarTextoNumerosComSimbolo(txtProdutoPreco.Text);
+            txtProdutoPreco.SelectionStart = txtProdutoPreco.Text.Length;
+        }
 
+        #endregion
+
+        #region EventosVendas
+
+        private void btnPedidoNovo_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            dtPedidoProdutos.Clear();
+            cmbPedidoClientes.SelectedIndex = -1;
+            cmbPedidoProdutos.SelectedIndex = -1;
+            nudPedidoProdutoQuantidade.Value = 1;
+            produto.Limpar();
+            pedido.Limpar();
+            cliente.Limpar();
+            utilisForm.LimparTextBoxes(txtPedidoNumero, txtPedidoObservacao, txtPedidoProdutoValorTotal, txtPedidoProdutoValorUnitario, txtPedidoValorTotal, txtPedidoValorPago, txtPedidoSaldo, txtPedidoDataInclusao, txtPedidoDataFinalizado, txtPedidoDataCancelado);
+            cmbPedidoClientes.SelectedIndex = -1;
+            cmbPedidoProdutos.SelectedIndex = -1;
+            this.Cursor = Cursors.Default;
+        }
+        private void btnPedidoSalvar_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            SalvarPedido();
+
+            this.Cursor = Cursors.Default;
+        }
+        private void nudPedidoProdutoQuantidade_ValueChanged(object sender, EventArgs e)
+        {
+
+            if (produto.id == 0)
+            {
+                MessageBox.Show($"Selecione um produto!", "AVISO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (nudPedidoProdutoQuantidade.Value == 0)
+            {
+                nudPedidoProdutoQuantidade.Value = 1;
+                return;
+            }
+
+            if (nudPedidoProdutoQuantidade.Value > produto.quantidadeEstoque)
+            {
+                if (produto.quantidadeEstoque == 0)
+                {
+                    MessageBox.Show($"Produto: {produto.produto} sem estoque!", "AVISO!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show($"Quantidade máxima atingida, só existem {produto.quantidadeEstoque} unidades do produto: {produto.produto} em estoque!", "AVISO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    nudPedidoProdutoQuantidade.Value = produto.quantidadeEstoque;
+
+                }
+
+                return;
+            }
+            CalcularTotalProduto();
+        }
+        private void cmbPedidoProdutos_SelectedValueChanged(object sender, EventArgs e)
+        {
+            CarregarProdutoSelecionado();
+        }
+        private void btnPedidoCaixa_Click(object sender, EventArgs e)
+        {
+            if (pedido.id == 0) { return; }
+            frmCaixa frm = new frmCaixa(pedido.id);
+            frm.ShowDialog();
+            AtualizarResumo();
+
+        }
+        private void btnPedidoFinalizar_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            if (Convert.ToDecimal(txtPedidoSaldo.Text) != 0)
+            {
+                MessageBox.Show("Para Finalizar a venda, acerte o caixa!, não é possivel finalizar com saldo pendente de troco ou recebimento!","AVISO",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                this.Cursor = Cursors.Default;
+                return;
+            }
+
+            FinalizarPedido();
+            this.Cursor = Cursors.Default;
+        }
+        private void btnPedidoCancelar_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            CancelarPedido();
+
+            this.Cursor = Cursors.Default;
+        }
+        private void btnPedidoSalvarProduto_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            AdicionarItemPedido();
+            SomarColunaValorTotal();
+            SalvarPedido();
+            AtualizarResumo();
+            this.Cursor = Cursors.Default;
+        }
+        private void btnPedidoRemoverProduto_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            RemoverItemPedido();
+            SalvarPedido();
+            SomarColunaValorTotal();
+            AtualizarResumo();
+            this.Cursor = Cursors.Default;
+        }
+        private void btnPedidoVoltar_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            PesquisarPedidoProximoOuAnterior(false);
+            this.Cursor = Cursors.Default;
+        }
+        private void btnPedidoAvancar_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            PesquisarPedidoProximoOuAnterior(true);
+            this.Cursor = Cursors.Default;
+        }
+        private void btnPedidoPesquisar_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            PesquisarPedido();
+            this.Cursor = Cursors.Default;
+        }
+        private void dgvPedidoProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvPedidoProdutos.Rows[e.RowIndex];
+                CapturarDadosPedidoProduto(row);
+            }
+        }
+        private void cmbPedidoClientes_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbPedidoClientes.SelectedIndex != -1)
+            {
+                cliente.CarregarCliente(Convert.ToInt32(cmbPedidoClientes.SelectedValue));
+            }
+        }
+        #endregion
+
+        #region EventosRelatorios
+        private void btnGerarRelatorio_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            if (lstRelatorios.SelectedItem is null) { MessageBox.Show("selecione um relatório!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop); return; }
+
+            string relatorio = lstRelatorios.SelectedItem.ToString();
+
+            relatorios.CarregarRelatorio(rvwRelatorios, relatorio,dtpDataInicial.Value.ToString("yyyy-MM-dd"), dtpDataFinal.Value.ToString("yyyy-MM-dd"));
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void lstRelatorios_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (lstRelatorios.SelectedItem.ToString() == "Vendas Finalizadas") { dtpDataFinal.Enabled = true; dtpDataInicial.Enabled = true; }
+            else { dtpDataFinal.Enabled = false; dtpDataInicial.Enabled = false; }
+        }
         #endregion
 
         #endregion

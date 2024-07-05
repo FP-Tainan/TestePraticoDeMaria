@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuPrincipal));
             this.krPallet = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.tabInterface = new System.Windows.Forms.TabControl();
             this.tpMenu = new System.Windows.Forms.TabPage();
@@ -48,21 +49,21 @@
             this.ColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colClienteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEnderecoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbPesquisaCliente = new System.Windows.Forms.Label();
             this.grpDadosCliente = new System.Windows.Forms.GroupBox();
             this.cmbClienteEnderecoUf = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbComplementoEnderecoCliente = new System.Windows.Forms.Label();
+            this.lbCepCliente = new System.Windows.Forms.Label();
+            this.lbCpfCnpjCliente = new System.Windows.Forms.Label();
+            this.lbEstadoCliente = new System.Windows.Forms.Label();
+            this.lbNumeroCasaCliente = new System.Windows.Forms.Label();
+            this.lbTelefoneCliente = new System.Windows.Forms.Label();
+            this.lbLocalidadeEnderecoCliente = new System.Windows.Forms.Label();
+            this.lbBairroEnderecoCliente = new System.Windows.Forms.Label();
+            this.lbLogradouroCLiente = new System.Windows.Forms.Label();
+            this.lbEmailCliente = new System.Windows.Forms.Label();
             this.btnClientePesquisarCEP = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbNomeCliente = new System.Windows.Forms.Label();
             this.chkPessoaJuridica = new System.Windows.Forms.CheckBox();
             this.txtClienteEnderecoNumero = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtClienteEnderecoComplemento = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -81,16 +82,21 @@
             this.btnClienteNovo = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txtClientePesquisa = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnClientePesquisar = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbResultadoConsultaCliente = new System.Windows.Forms.Label();
             this.tpProdutos = new System.Windows.Forms.TabPage();
             this.dgvProdutoPesquisa = new System.Windows.Forms.DataGridView();
-            this.label14 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecoUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbPesquisaProduto = new System.Windows.Forms.Label();
+            this.grpDadosProduto = new System.Windows.Forms.GroupBox();
             this.nudProdutoQuantidadeEstoque = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
+            this.lbDescricaoProduto = new System.Windows.Forms.Label();
+            this.lbQuantidadeEstoqueProduto = new System.Windows.Forms.Label();
+            this.lbPrecoProduto = new System.Windows.Forms.Label();
+            this.lbNomeProduto = new System.Windows.Forms.Label();
             this.txtProdutoDescricao = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtProdutoPreco = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtProdutoNome = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -100,75 +106,73 @@
             this.btnProdutoNovo = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txtProdutoPesquisa = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnProdutoPesquisar = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label26 = new System.Windows.Forms.Label();
+            this.lbResultadoPesquisaProduto = new System.Windows.Forms.Label();
             this.tpVenda = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.kryptonTextBox5 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonTextBox4 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.grpResumoPedido = new System.Windows.Forms.GroupBox();
+            this.lbResumoValorSaldo = new System.Windows.Forms.Label();
+            this.lbResumoValorPago = new System.Windows.Forms.Label();
+            this.lbResumoValorTotal = new System.Windows.Forms.Label();
+            this.txtPedidoSaldo = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtPedidoValorPago = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtPedidoValorTotal = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnPedidoCaixa = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txtPedidoPesquisa = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonButton7 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton9 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnPedidoPesquisar = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnPedidoCancelar = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnPedidoFinalizar = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnPedidoSalvar = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnPedidoNovo = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.dgvPedidoProdutos = new System.Windows.Forms.DataGridView();
+            this.colProdutoVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQuantiade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValorUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdutoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label27 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.kryptonButton5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.grpDadosProdutoPedido = new System.Windows.Forms.GroupBox();
+            this.lbProdutoNomePedido = new System.Windows.Forms.Label();
+            this.btnPedidoRemoverProduto = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.cmbPedidoProdutos = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonButton4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.btnPedidoSalvarProduto = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.lbProdutoValorTotalitemPedido = new System.Windows.Forms.Label();
+            this.lbProdutoValorUnidadePedido = new System.Windows.Forms.Label();
+            this.lbProdutoQuantidadePedido = new System.Windows.Forms.Label();
             this.txtPedidoProdutoValorTotal = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtPedidoProdutoValorUnitario = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.nudPedidoProdutoQuantidade = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.grpDadosPedido = new System.Windows.Forms.GroupBox();
+            this.lbObservacaoPedido = new System.Windows.Forms.Label();
             this.txtPedidoObservacao = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.cmbPedidoClientes = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.kryptonTextBox3 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonTextBox2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.btnPedidoVoltar = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnPedidoAvancar = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.lbClientePedido = new System.Windows.Forms.Label();
+            this.lbDataCancelamentoPedido = new System.Windows.Forms.Label();
+            this.lbDataConclusaoPedido = new System.Windows.Forms.Label();
+            this.lbDataPedido = new System.Windows.Forms.Label();
+            this.lbNumeroPedido = new System.Windows.Forms.Label();
+            this.txtPedidoDataCancelado = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtPedidoDataFinalizado = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtPedidoDataInclusao = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtPedidoNumero = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.tpRelatorios = new System.Windows.Forms.TabPage();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.kryptonButton8 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dtpDataFinal = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataInicial = new System.Windows.Forms.DateTimePicker();
+            this.btnGerarRelatorio = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.lstRelatorios = new System.Windows.Forms.ListBox();
+            this.rvwRelatorios = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnClientes = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnProdutos = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnVendas = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnRelatorios = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.grpNavMenu = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.btnConfiguracao = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.colProdutoVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuantiade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValorUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecoUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabInterface.SuspendLayout();
             this.tpCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientePesquisa)).BeginInit();
@@ -180,21 +184,21 @@
             this.grpClienteControles.SuspendLayout();
             this.tpProdutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutoPesquisa)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grpDadosProduto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpProdutoControles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpProdutoControles.Panel)).BeginInit();
             this.grpProdutoControles.Panel.SuspendLayout();
             this.grpProdutoControles.SuspendLayout();
             this.tpVenda.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.grpResumoPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoProdutos)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.grpDadosProdutoPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPedidoProdutos)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.grpDadosPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPedidoClientes)).BeginInit();
             this.tpRelatorios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
@@ -235,10 +239,10 @@
             this.tabInterface.Controls.Add(this.tpProdutos);
             this.tabInterface.Controls.Add(this.tpVenda);
             this.tabInterface.Controls.Add(this.tpRelatorios);
-            this.tabInterface.Location = new System.Drawing.Point(33, 58);
+            this.tabInterface.Location = new System.Drawing.Point(33, 52);
             this.tabInterface.Name = "tabInterface";
             this.tabInterface.SelectedIndex = 0;
-            this.tabInterface.Size = new System.Drawing.Size(1205, 594);
+            this.tabInterface.Size = new System.Drawing.Size(1205, 600);
             this.tabInterface.TabIndex = 0;
             // 
             // tpMenu
@@ -246,7 +250,7 @@
             this.tpMenu.Location = new System.Drawing.Point(4, 25);
             this.tpMenu.Name = "tpMenu";
             this.tpMenu.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMenu.Size = new System.Drawing.Size(1197, 565);
+            this.tpMenu.Size = new System.Drawing.Size(1197, 571);
             this.tpMenu.TabIndex = 0;
             this.tpMenu.Text = "Menu";
             this.tpMenu.UseVisualStyleBackColor = true;
@@ -254,16 +258,16 @@
             // tpCliente
             // 
             this.tpCliente.Controls.Add(this.dgvClientePesquisa);
-            this.tpCliente.Controls.Add(this.label3);
+            this.tpCliente.Controls.Add(this.lbPesquisaCliente);
             this.tpCliente.Controls.Add(this.grpDadosCliente);
             this.tpCliente.Controls.Add(this.grpClienteControles);
             this.tpCliente.Controls.Add(this.txtClientePesquisa);
             this.tpCliente.Controls.Add(this.btnClientePesquisar);
-            this.tpCliente.Controls.Add(this.label13);
+            this.tpCliente.Controls.Add(this.lbResultadoConsultaCliente);
             this.tpCliente.Location = new System.Drawing.Point(4, 25);
             this.tpCliente.Name = "tpCliente";
             this.tpCliente.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCliente.Size = new System.Drawing.Size(1197, 565);
+            this.tpCliente.Size = new System.Drawing.Size(1197, 571);
             this.tpCliente.TabIndex = 1;
             this.tpCliente.Text = "Clientes";
             this.tpCliente.UseVisualStyleBackColor = true;
@@ -293,10 +297,9 @@
             this.colClienteId,
             this.colEnderecoId});
             this.dgvClientePesquisa.Location = new System.Drawing.Point(19, 406);
-            this.dgvClientePesquisa.MultiSelect = false;
             this.dgvClientePesquisa.Name = "dgvClientePesquisa";
             this.dgvClientePesquisa.ReadOnly = true;
-            this.dgvClientePesquisa.Size = new System.Drawing.Size(1157, 145);
+            this.dgvClientePesquisa.Size = new System.Drawing.Size(1157, 148);
             this.dgvClientePesquisa.TabIndex = 5;
             this.dgvClientePesquisa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientePesquisa_CellClick);
             // 
@@ -413,33 +416,33 @@
             this.colEnderecoId.ReadOnly = true;
             this.colEnderecoId.Visible = false;
             // 
-            // label3
+            // lbPesquisaCliente
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(353, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(259, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Pesquisar Cliente (Nome, CPF ou CNPJ)";
+            this.lbPesquisaCliente.AutoSize = true;
+            this.lbPesquisaCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPesquisaCliente.Location = new System.Drawing.Point(353, 10);
+            this.lbPesquisaCliente.Name = "lbPesquisaCliente";
+            this.lbPesquisaCliente.Size = new System.Drawing.Size(259, 16);
+            this.lbPesquisaCliente.TabIndex = 2;
+            this.lbPesquisaCliente.Text = "Pesquisar Cliente (Nome, CPF ou CNPJ)";
             // 
             // grpDadosCliente
             // 
             this.grpDadosCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpDadosCliente.Controls.Add(this.cmbClienteEnderecoUf);
-            this.grpDadosCliente.Controls.Add(this.label9);
-            this.grpDadosCliente.Controls.Add(this.label6);
-            this.grpDadosCliente.Controls.Add(this.label2);
-            this.grpDadosCliente.Controls.Add(this.label12);
-            this.grpDadosCliente.Controls.Add(this.label8);
-            this.grpDadosCliente.Controls.Add(this.label5);
-            this.grpDadosCliente.Controls.Add(this.label11);
-            this.grpDadosCliente.Controls.Add(this.label10);
-            this.grpDadosCliente.Controls.Add(this.label7);
-            this.grpDadosCliente.Controls.Add(this.label4);
+            this.grpDadosCliente.Controls.Add(this.lbComplementoEnderecoCliente);
+            this.grpDadosCliente.Controls.Add(this.lbCepCliente);
+            this.grpDadosCliente.Controls.Add(this.lbCpfCnpjCliente);
+            this.grpDadosCliente.Controls.Add(this.lbEstadoCliente);
+            this.grpDadosCliente.Controls.Add(this.lbNumeroCasaCliente);
+            this.grpDadosCliente.Controls.Add(this.lbTelefoneCliente);
+            this.grpDadosCliente.Controls.Add(this.lbLocalidadeEnderecoCliente);
+            this.grpDadosCliente.Controls.Add(this.lbBairroEnderecoCliente);
+            this.grpDadosCliente.Controls.Add(this.lbLogradouroCLiente);
+            this.grpDadosCliente.Controls.Add(this.lbEmailCliente);
             this.grpDadosCliente.Controls.Add(this.btnClientePesquisarCEP);
-            this.grpDadosCliente.Controls.Add(this.label1);
+            this.grpDadosCliente.Controls.Add(this.lbNomeCliente);
             this.grpDadosCliente.Controls.Add(this.chkPessoaJuridica);
             this.grpDadosCliente.Controls.Add(this.txtClienteEnderecoNumero);
             this.grpDadosCliente.Controls.Add(this.txtClienteEnderecoComplemento);
@@ -474,102 +477,102 @@
             this.cmbClienteEnderecoUf.StateCommon.ComboBox.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.cmbClienteEnderecoUf.TabIndex = 12;
             // 
-            // label9
+            // lbComplementoEnderecoCliente
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(450, 166);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 16);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Complemento:";
+            this.lbComplementoEnderecoCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbComplementoEnderecoCliente.AutoSize = true;
+            this.lbComplementoEnderecoCliente.Location = new System.Drawing.Point(450, 166);
+            this.lbComplementoEnderecoCliente.Name = "lbComplementoEnderecoCliente";
+            this.lbComplementoEnderecoCliente.Size = new System.Drawing.Size(100, 16);
+            this.lbComplementoEnderecoCliente.TabIndex = 2;
+            this.lbComplementoEnderecoCliente.Text = "Complemento:";
             // 
-            // label6
+            // lbCepCliente
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(610, 105);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 16);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "CEP:";
+            this.lbCepCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbCepCliente.AutoSize = true;
+            this.lbCepCliente.Location = new System.Drawing.Point(610, 105);
+            this.lbCepCliente.Name = "lbCepCliente";
+            this.lbCepCliente.Size = new System.Drawing.Size(37, 16);
+            this.lbCepCliente.TabIndex = 2;
+            this.lbCepCliente.Text = "CEP:";
             // 
-            // label2
+            // lbCpfCnpjCliente
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(510, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "CPF / CNPJ:";
+            this.lbCpfCnpjCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbCpfCnpjCliente.AutoSize = true;
+            this.lbCpfCnpjCliente.Location = new System.Drawing.Point(510, 35);
+            this.lbCpfCnpjCliente.Name = "lbCpfCnpjCliente";
+            this.lbCpfCnpjCliente.Size = new System.Drawing.Size(83, 16);
+            this.lbCpfCnpjCliente.TabIndex = 2;
+            this.lbCpfCnpjCliente.Text = "CPF / CNPJ:";
             // 
-            // label12
+            // lbEstadoCliente
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(755, 232);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(28, 16);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "UF:";
+            this.lbEstadoCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEstadoCliente.AutoSize = true;
+            this.lbEstadoCliente.Location = new System.Drawing.Point(755, 232);
+            this.lbEstadoCliente.Name = "lbEstadoCliente";
+            this.lbEstadoCliente.Size = new System.Drawing.Size(28, 16);
+            this.lbEstadoCliente.TabIndex = 2;
+            this.lbEstadoCliente.Text = "UF:";
             // 
-            // label8
+            // lbNumeroCasaCliente
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(336, 166);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 16);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Número:";
+            this.lbNumeroCasaCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbNumeroCasaCliente.AutoSize = true;
+            this.lbNumeroCasaCliente.Location = new System.Drawing.Point(336, 166);
+            this.lbNumeroCasaCliente.Name = "lbNumeroCasaCliente";
+            this.lbNumeroCasaCliente.Size = new System.Drawing.Size(61, 16);
+            this.lbNumeroCasaCliente.TabIndex = 2;
+            this.lbNumeroCasaCliente.Text = "Número:";
             // 
-            // label5
+            // lbTelefoneCliente
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(449, 105);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 16);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Telefone / Celular:";
+            this.lbTelefoneCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTelefoneCliente.AutoSize = true;
+            this.lbTelefoneCliente.Location = new System.Drawing.Point(441, 105);
+            this.lbTelefoneCliente.Name = "lbTelefoneCliente";
+            this.lbTelefoneCliente.Size = new System.Drawing.Size(124, 16);
+            this.lbTelefoneCliente.TabIndex = 2;
+            this.lbTelefoneCliente.Text = "Telefone / Celular:";
             // 
-            // label11
+            // lbLocalidadeEnderecoCliente
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(361, 229);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 16);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Localidade:";
+            this.lbLocalidadeEnderecoCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbLocalidadeEnderecoCliente.AutoSize = true;
+            this.lbLocalidadeEnderecoCliente.Location = new System.Drawing.Point(361, 229);
+            this.lbLocalidadeEnderecoCliente.Name = "lbLocalidadeEnderecoCliente";
+            this.lbLocalidadeEnderecoCliente.Size = new System.Drawing.Size(82, 16);
+            this.lbLocalidadeEnderecoCliente.TabIndex = 2;
+            this.lbLocalidadeEnderecoCliente.Text = "Localidade:";
             // 
-            // label10
+            // lbBairroEnderecoCliente
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(39, 229);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 16);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Bairro:";
+            this.lbBairroEnderecoCliente.AutoSize = true;
+            this.lbBairroEnderecoCliente.Location = new System.Drawing.Point(39, 229);
+            this.lbBairroEnderecoCliente.Name = "lbBairroEnderecoCliente";
+            this.lbBairroEnderecoCliente.Size = new System.Drawing.Size(50, 16);
+            this.lbBairroEnderecoCliente.TabIndex = 2;
+            this.lbBairroEnderecoCliente.Text = "Bairro:";
             // 
-            // label7
+            // lbLogradouroCLiente
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(39, 166);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 16);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Logradouro:";
+            this.lbLogradouroCLiente.AutoSize = true;
+            this.lbLogradouroCLiente.Location = new System.Drawing.Point(39, 166);
+            this.lbLogradouroCLiente.Name = "lbLogradouroCLiente";
+            this.lbLogradouroCLiente.Size = new System.Drawing.Size(85, 16);
+            this.lbLogradouroCLiente.TabIndex = 2;
+            this.lbLogradouroCLiente.Text = "Logradouro:";
             // 
-            // label4
+            // lbEmailCliente
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 101);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "E-mail:";
+            this.lbEmailCliente.AutoSize = true;
+            this.lbEmailCliente.Location = new System.Drawing.Point(39, 101);
+            this.lbEmailCliente.Name = "lbEmailCliente";
+            this.lbEmailCliente.Size = new System.Drawing.Size(51, 16);
+            this.lbEmailCliente.TabIndex = 2;
+            this.lbEmailCliente.Text = "E-mail:";
             // 
             // btnClientePesquisarCEP
             // 
@@ -586,14 +589,14 @@
             this.btnClientePesquisarCEP.Values.Text = "";
             this.btnClientePesquisarCEP.Click += new System.EventHandler(this.btnClientePesquisarCEP_Click);
             // 
-            // label1
+            // lbNomeCliente
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nome completo:";
+            this.lbNomeCliente.AutoSize = true;
+            this.lbNomeCliente.Location = new System.Drawing.Point(39, 36);
+            this.lbNomeCliente.Name = "lbNomeCliente";
+            this.lbNomeCliente.Size = new System.Drawing.Size(111, 16);
+            this.lbNomeCliente.TabIndex = 2;
+            this.lbNomeCliente.Text = "Nome completo:";
             // 
             // chkPessoaJuridica
             // 
@@ -880,29 +883,29 @@
             this.btnClientePesquisar.Values.Text = "";
             this.btnClientePesquisar.Click += new System.EventHandler(this.btnClientePesquisar_Click);
             // 
-            // label13
+            // lbResultadoConsultaCliente
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(18, 387);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(147, 16);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Resultado da consulta";
+            this.lbResultadoConsultaCliente.AutoSize = true;
+            this.lbResultadoConsultaCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbResultadoConsultaCliente.Location = new System.Drawing.Point(18, 387);
+            this.lbResultadoConsultaCliente.Name = "lbResultadoConsultaCliente";
+            this.lbResultadoConsultaCliente.Size = new System.Drawing.Size(147, 16);
+            this.lbResultadoConsultaCliente.TabIndex = 2;
+            this.lbResultadoConsultaCliente.Text = "Resultado da consulta";
             // 
             // tpProdutos
             // 
             this.tpProdutos.Controls.Add(this.dgvProdutoPesquisa);
-            this.tpProdutos.Controls.Add(this.label14);
-            this.tpProdutos.Controls.Add(this.groupBox1);
+            this.tpProdutos.Controls.Add(this.lbPesquisaProduto);
+            this.tpProdutos.Controls.Add(this.grpDadosProduto);
             this.tpProdutos.Controls.Add(this.grpProdutoControles);
             this.tpProdutos.Controls.Add(this.txtProdutoPesquisa);
             this.tpProdutos.Controls.Add(this.btnProdutoPesquisar);
-            this.tpProdutos.Controls.Add(this.label26);
+            this.tpProdutos.Controls.Add(this.lbResultadoPesquisaProduto);
             this.tpProdutos.Location = new System.Drawing.Point(4, 25);
             this.tpProdutos.Name = "tpProdutos";
             this.tpProdutos.Padding = new System.Windows.Forms.Padding(3);
-            this.tpProdutos.Size = new System.Drawing.Size(1197, 565);
+            this.tpProdutos.Size = new System.Drawing.Size(1197, 571);
             this.tpProdutos.TabIndex = 2;
             this.tpProdutos.Text = "Produtos";
             this.tpProdutos.UseVisualStyleBackColor = true;
@@ -924,38 +927,80 @@
             this.dgvProdutoPesquisa.Location = new System.Drawing.Point(20, 408);
             this.dgvProdutoPesquisa.Name = "dgvProdutoPesquisa";
             this.dgvProdutoPesquisa.ReadOnly = true;
-            this.dgvProdutoPesquisa.Size = new System.Drawing.Size(1157, 139);
+            this.dgvProdutoPesquisa.Size = new System.Drawing.Size(1157, 142);
             this.dgvProdutoPesquisa.TabIndex = 19;
+            this.dgvProdutoPesquisa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutoPesquisa_CellClick);
             // 
-            // label14
+            // colProduto
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(354, 12);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(123, 16);
-            this.label14.TabIndex = 16;
-            this.label14.Text = "Pesquisar Produto";
+            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colProduto.DataPropertyName = "produto";
+            this.colProduto.HeaderText = "Produto";
+            this.colProduto.MinimumWidth = 150;
+            this.colProduto.Name = "colProduto";
+            this.colProduto.ReadOnly = true;
             // 
-            // groupBox1
+            // colPrecoUnitario
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.colPrecoUnitario.DataPropertyName = "precounitario";
+            this.colPrecoUnitario.HeaderText = "Preço";
+            this.colPrecoUnitario.Name = "colPrecoUnitario";
+            this.colPrecoUnitario.ReadOnly = true;
+            // 
+            // colEstoque
+            // 
+            this.colEstoque.DataPropertyName = "quantidadeestoque";
+            this.colEstoque.HeaderText = "Quantidade em Estoque";
+            this.colEstoque.Name = "colEstoque";
+            this.colEstoque.ReadOnly = true;
+            this.colEstoque.Width = 180;
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescricao.DataPropertyName = "descricao";
+            this.colDescricao.HeaderText = "Descrição";
+            this.colDescricao.MinimumWidth = 100;
+            this.colDescricao.Name = "colDescricao";
+            this.colDescricao.ReadOnly = true;
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "id";
+            this.colId.HeaderText = "id";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
+            // 
+            // lbPesquisaProduto
+            // 
+            this.lbPesquisaProduto.AutoSize = true;
+            this.lbPesquisaProduto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPesquisaProduto.Location = new System.Drawing.Point(354, 12);
+            this.lbPesquisaProduto.Name = "lbPesquisaProduto";
+            this.lbPesquisaProduto.Size = new System.Drawing.Size(172, 16);
+            this.lbPesquisaProduto.TabIndex = 16;
+            this.lbPesquisaProduto.Text = "Pesquisar Produto (Nome)";
+            // 
+            // grpDadosProduto
+            // 
+            this.grpDadosProduto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.nudProdutoQuantidadeEstoque);
-            this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label25);
-            this.groupBox1.Controls.Add(this.txtProdutoDescricao);
-            this.groupBox1.Controls.Add(this.txtProdutoPreco);
-            this.groupBox1.Controls.Add(this.txtProdutoNome);
-            this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(20, 77);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(868, 295);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dados do Produto";
+            this.grpDadosProduto.Controls.Add(this.nudProdutoQuantidadeEstoque);
+            this.grpDadosProduto.Controls.Add(this.lbDescricaoProduto);
+            this.grpDadosProduto.Controls.Add(this.lbQuantidadeEstoqueProduto);
+            this.grpDadosProduto.Controls.Add(this.lbPrecoProduto);
+            this.grpDadosProduto.Controls.Add(this.lbNomeProduto);
+            this.grpDadosProduto.Controls.Add(this.txtProdutoDescricao);
+            this.grpDadosProduto.Controls.Add(this.txtProdutoPreco);
+            this.grpDadosProduto.Controls.Add(this.txtProdutoNome);
+            this.grpDadosProduto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpDadosProduto.Location = new System.Drawing.Point(20, 77);
+            this.grpDadosProduto.Name = "grpDadosProduto";
+            this.grpDadosProduto.Size = new System.Drawing.Size(868, 295);
+            this.grpDadosProduto.TabIndex = 17;
+            this.grpDadosProduto.TabStop = false;
+            this.grpDadosProduto.Text = "Dados do Produto";
             // 
             // nudProdutoQuantidadeEstoque
             // 
@@ -969,44 +1014,44 @@
             this.nudProdutoQuantidadeEstoque.StateCommon.Border.Rounding = 18;
             this.nudProdutoQuantidadeEstoque.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.nudProdutoQuantidadeEstoque.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.nudProdutoQuantidadeEstoque.TabIndex = 4;
+            this.nudProdutoQuantidadeEstoque.TabIndex = 18;
             // 
-            // label24
+            // lbDescricaoProduto
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(39, 155);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(73, 16);
-            this.label24.TabIndex = 2;
-            this.label24.Text = "Descrição:";
+            this.lbDescricaoProduto.AutoSize = true;
+            this.lbDescricaoProduto.Location = new System.Drawing.Point(39, 155);
+            this.lbDescricaoProduto.Name = "lbDescricaoProduto";
+            this.lbDescricaoProduto.Size = new System.Drawing.Size(73, 16);
+            this.lbDescricaoProduto.TabIndex = 2;
+            this.lbDescricaoProduto.Text = "Descrição:";
             // 
-            // label16
+            // lbQuantidadeEstoqueProduto
             // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(639, 93);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(163, 16);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Quantidade em Estoque:";
+            this.lbQuantidadeEstoqueProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbQuantidadeEstoqueProduto.AutoSize = true;
+            this.lbQuantidadeEstoqueProduto.Location = new System.Drawing.Point(639, 93);
+            this.lbQuantidadeEstoqueProduto.Name = "lbQuantidadeEstoqueProduto";
+            this.lbQuantidadeEstoqueProduto.Size = new System.Drawing.Size(163, 16);
+            this.lbQuantidadeEstoqueProduto.TabIndex = 2;
+            this.lbQuantidadeEstoqueProduto.Text = "Quantidade em Estoque:";
             // 
-            // label15
+            // lbPrecoProduto
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(39, 93);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(48, 16);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Preço:";
+            this.lbPrecoProduto.AutoSize = true;
+            this.lbPrecoProduto.Location = new System.Drawing.Point(39, 93);
+            this.lbPrecoProduto.Name = "lbPrecoProduto";
+            this.lbPrecoProduto.Size = new System.Drawing.Size(48, 16);
+            this.lbPrecoProduto.TabIndex = 2;
+            this.lbPrecoProduto.Text = "Preço:";
             // 
-            // label25
+            // lbNomeProduto
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(39, 36);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(48, 16);
-            this.label25.TabIndex = 2;
-            this.label25.Text = "Nome:";
+            this.lbNomeProduto.AutoSize = true;
+            this.lbNomeProduto.Location = new System.Drawing.Point(39, 36);
+            this.lbNomeProduto.Name = "lbNomeProduto";
+            this.lbNomeProduto.Size = new System.Drawing.Size(48, 16);
+            this.lbNomeProduto.TabIndex = 2;
+            this.lbNomeProduto.Text = "Nome:";
             // 
             // txtProdutoDescricao
             // 
@@ -1023,10 +1068,11 @@
             this.txtProdutoDescricao.StateCommon.Border.Rounding = 18;
             this.txtProdutoDescricao.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProdutoDescricao.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtProdutoDescricao.TabIndex = 3;
+            this.txtProdutoDescricao.TabIndex = 19;
             // 
             // txtProdutoPreco
             // 
+            this.txtProdutoPreco.AccessibleName = "Preço";
             this.txtProdutoPreco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProdutoPreco.Location = new System.Drawing.Point(22, 112);
@@ -1038,10 +1084,12 @@
             this.txtProdutoPreco.StateCommon.Border.Rounding = 18;
             this.txtProdutoPreco.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProdutoPreco.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtProdutoPreco.TabIndex = 0;
+            this.txtProdutoPreco.TabIndex = 17;
+            this.txtProdutoPreco.TextChanged += new System.EventHandler(this.txtProdutoPreco_TextChanged);
             // 
             // txtProdutoNome
             // 
+            this.txtProdutoNome.AccessibleName = "Nome";
             this.txtProdutoNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProdutoNome.Location = new System.Drawing.Point(22, 55);
@@ -1053,7 +1101,7 @@
             this.txtProdutoNome.StateCommon.Border.Rounding = 18;
             this.txtProdutoNome.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProdutoNome.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtProdutoNome.TabIndex = 0;
+            this.txtProdutoNome.TabIndex = 16;
             // 
             // grpProdutoControles
             // 
@@ -1089,7 +1137,7 @@
             this.btnProdutoRemover.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
             this.btnProdutoRemover.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnProdutoRemover.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdutoRemover.TabIndex = 17;
+            this.btnProdutoRemover.TabIndex = 23;
             this.btnProdutoRemover.Values.Image = global::TestePraticoDeMaria.Properties.Resources.remover__2_;
             this.btnProdutoRemover.Values.Text = " Remover";
             this.btnProdutoRemover.Click += new System.EventHandler(this.btnProdutoRemover_Click);
@@ -1106,7 +1154,7 @@
             this.btnProdutoSalvar.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
             this.btnProdutoSalvar.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnProdutoSalvar.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdutoSalvar.TabIndex = 15;
+            this.btnProdutoSalvar.TabIndex = 22;
             this.btnProdutoSalvar.Values.Image = global::TestePraticoDeMaria.Properties.Resources.Salvar;
             this.btnProdutoSalvar.Values.Text = "\tSalvar";
             this.btnProdutoSalvar.Click += new System.EventHandler(this.btnProdutoSalvar_Click);
@@ -1123,7 +1171,7 @@
             this.btnProdutoNovo.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
             this.btnProdutoNovo.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnProdutoNovo.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdutoNovo.TabIndex = 14;
+            this.btnProdutoNovo.TabIndex = 21;
             this.btnProdutoNovo.Values.Image = global::TestePraticoDeMaria.Properties.Resources.arquivo__1_;
             this.btnProdutoNovo.Values.Text = "\tNovo";
             this.btnProdutoNovo.Click += new System.EventHandler(this.btnProdutoNovo_Click);
@@ -1157,107 +1205,110 @@
             this.btnProdutoPesquisar.TabIndex = 15;
             this.btnProdutoPesquisar.Values.Image = global::TestePraticoDeMaria.Properties.Resources.pesquisar__2_;
             this.btnProdutoPesquisar.Values.Text = "";
+            this.btnProdutoPesquisar.Click += new System.EventHandler(this.btnProdutoPesquisar_Click);
             // 
-            // label26
+            // lbResultadoPesquisaProduto
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(19, 389);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(147, 16);
-            this.label26.TabIndex = 18;
-            this.label26.Text = "Resultado da consulta";
+            this.lbResultadoPesquisaProduto.AutoSize = true;
+            this.lbResultadoPesquisaProduto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbResultadoPesquisaProduto.Location = new System.Drawing.Point(19, 389);
+            this.lbResultadoPesquisaProduto.Name = "lbResultadoPesquisaProduto";
+            this.lbResultadoPesquisaProduto.Size = new System.Drawing.Size(147, 16);
+            this.lbResultadoPesquisaProduto.TabIndex = 18;
+            this.lbResultadoPesquisaProduto.Text = "Resultado da consulta";
             // 
             // tpVenda
             // 
-            this.tpVenda.Controls.Add(this.groupBox4);
+            this.tpVenda.Controls.Add(this.grpResumoPedido);
             this.tpVenda.Controls.Add(this.kryptonGroupBox1);
             this.tpVenda.Controls.Add(this.dgvPedidoProdutos);
             this.tpVenda.Controls.Add(this.label27);
-            this.tpVenda.Controls.Add(this.groupBox3);
-            this.tpVenda.Controls.Add(this.groupBox2);
+            this.tpVenda.Controls.Add(this.grpDadosProdutoPedido);
+            this.tpVenda.Controls.Add(this.grpDadosPedido);
             this.tpVenda.Location = new System.Drawing.Point(4, 25);
             this.tpVenda.Name = "tpVenda";
             this.tpVenda.Padding = new System.Windows.Forms.Padding(3);
-            this.tpVenda.Size = new System.Drawing.Size(1197, 565);
+            this.tpVenda.Size = new System.Drawing.Size(1197, 571);
             this.tpVenda.TabIndex = 3;
             this.tpVenda.Text = "Vendas";
             this.tpVenda.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // grpResumoPedido
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grpResumoPedido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.label34);
-            this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Controls.Add(this.label31);
-            this.groupBox4.Controls.Add(this.kryptonTextBox5);
-            this.groupBox4.Controls.Add(this.kryptonTextBox4);
-            this.groupBox4.Controls.Add(this.txtPedidoValorTotal);
-            this.groupBox4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(895, 375);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(283, 178);
-            this.groupBox4.TabIndex = 27;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Resumo Pedido";
+            this.grpResumoPedido.Controls.Add(this.lbResumoValorSaldo);
+            this.grpResumoPedido.Controls.Add(this.lbResumoValorPago);
+            this.grpResumoPedido.Controls.Add(this.lbResumoValorTotal);
+            this.grpResumoPedido.Controls.Add(this.txtPedidoSaldo);
+            this.grpResumoPedido.Controls.Add(this.txtPedidoValorPago);
+            this.grpResumoPedido.Controls.Add(this.txtPedidoValorTotal);
+            this.grpResumoPedido.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpResumoPedido.Location = new System.Drawing.Point(895, 379);
+            this.grpResumoPedido.Name = "grpResumoPedido";
+            this.grpResumoPedido.Size = new System.Drawing.Size(283, 181);
+            this.grpResumoPedido.TabIndex = 27;
+            this.grpResumoPedido.TabStop = false;
+            this.grpResumoPedido.Text = "Resumo Pedido";
             // 
-            // label34
+            // lbResumoValorSaldo
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(27, 123);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(48, 16);
-            this.label34.TabIndex = 2;
-            this.label34.Text = "Saldo:";
+            this.lbResumoValorSaldo.AutoSize = true;
+            this.lbResumoValorSaldo.Location = new System.Drawing.Point(27, 123);
+            this.lbResumoValorSaldo.Name = "lbResumoValorSaldo";
+            this.lbResumoValorSaldo.Size = new System.Drawing.Size(48, 16);
+            this.lbResumoValorSaldo.TabIndex = 2;
+            this.lbResumoValorSaldo.Text = "Saldo:";
             // 
-            // label29
+            // lbResumoValorPago
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(27, 71);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(81, 16);
-            this.label29.TabIndex = 2;
-            this.label29.Text = "Valor Pago:";
+            this.lbResumoValorPago.AutoSize = true;
+            this.lbResumoValorPago.Location = new System.Drawing.Point(27, 71);
+            this.lbResumoValorPago.Name = "lbResumoValorPago";
+            this.lbResumoValorPago.Size = new System.Drawing.Size(81, 16);
+            this.lbResumoValorPago.TabIndex = 2;
+            this.lbResumoValorPago.Text = "Valor Pago:";
             // 
-            // label31
+            // lbResumoValorTotal
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(27, 21);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(79, 16);
-            this.label31.TabIndex = 2;
-            this.label31.Text = "Valor Total:";
+            this.lbResumoValorTotal.AutoSize = true;
+            this.lbResumoValorTotal.Location = new System.Drawing.Point(27, 21);
+            this.lbResumoValorTotal.Name = "lbResumoValorTotal";
+            this.lbResumoValorTotal.Size = new System.Drawing.Size(79, 16);
+            this.lbResumoValorTotal.TabIndex = 2;
+            this.lbResumoValorTotal.Text = "Valor Total:";
             // 
-            // kryptonTextBox5
+            // txtPedidoSaldo
             // 
-            this.kryptonTextBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtPedidoSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonTextBox5.Location = new System.Drawing.Point(19, 142);
-            this.kryptonTextBox5.Name = "kryptonTextBox5";
-            this.kryptonTextBox5.Size = new System.Drawing.Size(245, 28);
-            this.kryptonTextBox5.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.txtPedidoSaldo.Location = new System.Drawing.Point(19, 142);
+            this.txtPedidoSaldo.Name = "txtPedidoSaldo";
+            this.txtPedidoSaldo.ReadOnly = true;
+            this.txtPedidoSaldo.Size = new System.Drawing.Size(245, 28);
+            this.txtPedidoSaldo.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonTextBox5.StateCommon.Border.Rounding = 18;
-            this.kryptonTextBox5.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 9F);
-            this.kryptonTextBox5.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.kryptonTextBox5.TabIndex = 0;
+            this.txtPedidoSaldo.StateCommon.Border.Rounding = 18;
+            this.txtPedidoSaldo.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.txtPedidoSaldo.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.txtPedidoSaldo.TabIndex = 0;
             // 
-            // kryptonTextBox4
+            // txtPedidoValorPago
             // 
-            this.kryptonTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtPedidoValorPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonTextBox4.Location = new System.Drawing.Point(19, 90);
-            this.kryptonTextBox4.Name = "kryptonTextBox4";
-            this.kryptonTextBox4.Size = new System.Drawing.Size(245, 28);
-            this.kryptonTextBox4.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.txtPedidoValorPago.Location = new System.Drawing.Point(19, 90);
+            this.txtPedidoValorPago.Name = "txtPedidoValorPago";
+            this.txtPedidoValorPago.ReadOnly = true;
+            this.txtPedidoValorPago.Size = new System.Drawing.Size(245, 28);
+            this.txtPedidoValorPago.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonTextBox4.StateCommon.Border.Rounding = 18;
-            this.kryptonTextBox4.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 9F);
-            this.kryptonTextBox4.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.kryptonTextBox4.TabIndex = 0;
+            this.txtPedidoValorPago.StateCommon.Border.Rounding = 18;
+            this.txtPedidoValorPago.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 9F);
+            this.txtPedidoValorPago.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.txtPedidoValorPago.TabIndex = 0;
             // 
             // txtPedidoValorTotal
             // 
@@ -1265,6 +1316,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPedidoValorTotal.Location = new System.Drawing.Point(19, 40);
             this.txtPedidoValorTotal.Name = "txtPedidoValorTotal";
+            this.txtPedidoValorTotal.ReadOnly = true;
             this.txtPedidoValorTotal.Size = new System.Drawing.Size(245, 28);
             this.txtPedidoValorTotal.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -1285,20 +1337,20 @@
             // kryptonGroupBox1.Panel
             // 
             this.kryptonGroupBox1.Panel.Controls.Add(this.label28);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonButton1);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnPedidoCaixa);
             this.kryptonGroupBox1.Panel.Controls.Add(this.txtPedidoPesquisa);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonButton7);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonButton9);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonButton2);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonButton3);
-            this.kryptonGroupBox1.Panel.Controls.Add(this.kryptonButton6);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnPedidoPesquisar);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnPedidoCancelar);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnPedidoFinalizar);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnPedidoSalvar);
+            this.kryptonGroupBox1.Panel.Controls.Add(this.btnPedidoNovo);
             this.kryptonGroupBox1.Size = new System.Drawing.Size(283, 353);
             this.kryptonGroupBox1.StateCommon.Back.Color1 = System.Drawing.Color.Linen;
             this.kryptonGroupBox1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonGroupBox1.StateCommon.Border.Rounding = 10;
-            this.kryptonGroupBox1.TabIndex = 26;
+            this.kryptonGroupBox1.TabIndex = 1;
             this.kryptonGroupBox1.Values.Heading = "";
             // 
             // label28
@@ -1306,27 +1358,28 @@
             this.label28.AutoSize = true;
             this.label28.BackColor = System.Drawing.Color.Transparent;
             this.label28.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(57, 6);
+            this.label28.Location = new System.Drawing.Point(27, 6);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(118, 16);
+            this.label28.Size = new System.Drawing.Size(180, 16);
             this.label28.TabIndex = 29;
-            this.label28.Text = "Pesquisar Pedido";
+            this.label28.Text = "Pesquisar Pedido (Número)";
             // 
-            // kryptonButton1
+            // btnPedidoCaixa
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(15, 177);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.Size = new System.Drawing.Size(245, 48);
-            this.kryptonButton1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnPedidoCaixa.Location = new System.Drawing.Point(15, 177);
+            this.btnPedidoCaixa.Name = "btnPedidoCaixa";
+            this.btnPedidoCaixa.Size = new System.Drawing.Size(245, 48);
+            this.btnPedidoCaixa.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton1.StateCommon.Border.Rounding = 20;
-            this.kryptonButton1.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
-            this.kryptonButton1.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonButton1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton1.TabIndex = 16;
-            this.kryptonButton1.Values.Image = global::TestePraticoDeMaria.Properties.Resources.dinheiro__1_;
-            this.kryptonButton1.Values.Text = "  Caixa";
+            this.btnPedidoCaixa.StateCommon.Border.Rounding = 20;
+            this.btnPedidoCaixa.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
+            this.btnPedidoCaixa.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnPedidoCaixa.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidoCaixa.TabIndex = 5;
+            this.btnPedidoCaixa.Values.Image = global::TestePraticoDeMaria.Properties.Resources.dinheiro__1_;
+            this.btnPedidoCaixa.Values.Text = "  Caixa";
+            this.btnPedidoCaixa.Click += new System.EventHandler(this.btnPedidoCaixa_Click);
             // 
             // txtPedidoPesquisa
             // 
@@ -1341,85 +1394,90 @@
             this.txtPedidoPesquisa.StateCommon.Border.Rounding = 18;
             this.txtPedidoPesquisa.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPedidoPesquisa.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtPedidoPesquisa.TabIndex = 27;
+            this.txtPedidoPesquisa.TabIndex = 1;
             // 
-            // kryptonButton7
+            // btnPedidoPesquisar
             // 
-            this.kryptonButton7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonButton7.Location = new System.Drawing.Point(209, 16);
-            this.kryptonButton7.Name = "kryptonButton7";
-            this.kryptonButton7.Size = new System.Drawing.Size(51, 48);
-            this.kryptonButton7.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnPedidoPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPedidoPesquisar.Location = new System.Drawing.Point(209, 16);
+            this.btnPedidoPesquisar.Name = "btnPedidoPesquisar";
+            this.btnPedidoPesquisar.Size = new System.Drawing.Size(51, 48);
+            this.btnPedidoPesquisar.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton7.StateCommon.Border.Rounding = 20;
-            this.kryptonButton7.TabIndex = 28;
-            this.kryptonButton7.Values.Image = global::TestePraticoDeMaria.Properties.Resources.pesquisar__2_;
-            this.kryptonButton7.Values.Text = "";
+            this.btnPedidoPesquisar.StateCommon.Border.Rounding = 20;
+            this.btnPedidoPesquisar.TabIndex = 2;
+            this.btnPedidoPesquisar.Values.Image = global::TestePraticoDeMaria.Properties.Resources.pesquisar__2_;
+            this.btnPedidoPesquisar.Values.Text = "";
+            this.btnPedidoPesquisar.Click += new System.EventHandler(this.btnPedidoPesquisar_Click);
             // 
-            // kryptonButton9
+            // btnPedidoCancelar
             // 
-            this.kryptonButton9.Location = new System.Drawing.Point(15, 283);
-            this.kryptonButton9.Name = "kryptonButton9";
-            this.kryptonButton9.Size = new System.Drawing.Size(245, 48);
-            this.kryptonButton9.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnPedidoCancelar.Location = new System.Drawing.Point(15, 283);
+            this.btnPedidoCancelar.Name = "btnPedidoCancelar";
+            this.btnPedidoCancelar.Size = new System.Drawing.Size(245, 48);
+            this.btnPedidoCancelar.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton9.StateCommon.Border.Rounding = 20;
-            this.kryptonButton9.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
-            this.kryptonButton9.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonButton9.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton9.TabIndex = 17;
-            this.kryptonButton9.Values.Image = global::TestePraticoDeMaria.Properties.Resources.remover__2_;
-            this.kryptonButton9.Values.Text = " Cancelar";
+            this.btnPedidoCancelar.StateCommon.Border.Rounding = 20;
+            this.btnPedidoCancelar.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
+            this.btnPedidoCancelar.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnPedidoCancelar.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidoCancelar.TabIndex = 7;
+            this.btnPedidoCancelar.Values.Image = global::TestePraticoDeMaria.Properties.Resources.remover__2_;
+            this.btnPedidoCancelar.Values.Text = " Cancelar";
+            this.btnPedidoCancelar.Click += new System.EventHandler(this.btnPedidoCancelar_Click);
             // 
-            // kryptonButton2
+            // btnPedidoFinalizar
             // 
-            this.kryptonButton2.Location = new System.Drawing.Point(15, 230);
-            this.kryptonButton2.Name = "kryptonButton2";
-            this.kryptonButton2.Size = new System.Drawing.Size(245, 48);
-            this.kryptonButton2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnPedidoFinalizar.Location = new System.Drawing.Point(15, 230);
+            this.btnPedidoFinalizar.Name = "btnPedidoFinalizar";
+            this.btnPedidoFinalizar.Size = new System.Drawing.Size(245, 48);
+            this.btnPedidoFinalizar.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton2.StateCommon.Border.Rounding = 20;
-            this.kryptonButton2.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
-            this.kryptonButton2.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonButton2.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton2.TabIndex = 17;
-            this.kryptonButton2.Values.Image = global::TestePraticoDeMaria.Properties.Resources.pacote;
-            this.kryptonButton2.Values.Text = "Finalizar";
+            this.btnPedidoFinalizar.StateCommon.Border.Rounding = 20;
+            this.btnPedidoFinalizar.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
+            this.btnPedidoFinalizar.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnPedidoFinalizar.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidoFinalizar.TabIndex = 6;
+            this.btnPedidoFinalizar.Values.Image = global::TestePraticoDeMaria.Properties.Resources.pacote;
+            this.btnPedidoFinalizar.Values.Text = "Finalizar";
+            this.btnPedidoFinalizar.Click += new System.EventHandler(this.btnPedidoFinalizar_Click);
             // 
-            // kryptonButton3
+            // btnPedidoSalvar
             // 
-            this.kryptonButton3.Location = new System.Drawing.Point(15, 124);
-            this.kryptonButton3.Name = "kryptonButton3";
-            this.kryptonButton3.Size = new System.Drawing.Size(245, 48);
-            this.kryptonButton3.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnPedidoSalvar.Location = new System.Drawing.Point(15, 124);
+            this.btnPedidoSalvar.Name = "btnPedidoSalvar";
+            this.btnPedidoSalvar.Size = new System.Drawing.Size(245, 48);
+            this.btnPedidoSalvar.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton3.StateCommon.Border.Rounding = 20;
-            this.kryptonButton3.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
-            this.kryptonButton3.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonButton3.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton3.TabIndex = 15;
-            this.kryptonButton3.Values.Image = global::TestePraticoDeMaria.Properties.Resources.Salvar;
-            this.kryptonButton3.Values.Text = "\tSalvar";
+            this.btnPedidoSalvar.StateCommon.Border.Rounding = 20;
+            this.btnPedidoSalvar.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
+            this.btnPedidoSalvar.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnPedidoSalvar.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidoSalvar.TabIndex = 5;
+            this.btnPedidoSalvar.Values.Image = global::TestePraticoDeMaria.Properties.Resources.Salvar;
+            this.btnPedidoSalvar.Values.Text = "\tSalvar";
+            this.btnPedidoSalvar.Click += new System.EventHandler(this.btnPedidoSalvar_Click);
             // 
-            // kryptonButton6
+            // btnPedidoNovo
             // 
-            this.kryptonButton6.Location = new System.Drawing.Point(15, 71);
-            this.kryptonButton6.Name = "kryptonButton6";
-            this.kryptonButton6.Size = new System.Drawing.Size(245, 48);
-            this.kryptonButton6.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnPedidoNovo.Location = new System.Drawing.Point(15, 70);
+            this.btnPedidoNovo.Name = "btnPedidoNovo";
+            this.btnPedidoNovo.Size = new System.Drawing.Size(245, 49);
+            this.btnPedidoNovo.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton6.StateCommon.Border.Rounding = 20;
-            this.kryptonButton6.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
-            this.kryptonButton6.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonButton6.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton6.TabIndex = 14;
-            this.kryptonButton6.Values.Image = global::TestePraticoDeMaria.Properties.Resources.arquivo__1_;
-            this.kryptonButton6.Values.Text = "\tNovo";
+            this.btnPedidoNovo.StateCommon.Border.Rounding = 20;
+            this.btnPedidoNovo.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
+            this.btnPedidoNovo.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnPedidoNovo.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidoNovo.TabIndex = 3;
+            this.btnPedidoNovo.Values.Image = global::TestePraticoDeMaria.Properties.Resources.arquivo__1_;
+            this.btnPedidoNovo.Values.Text = "\tNovo";
+            this.btnPedidoNovo.Click += new System.EventHandler(this.btnPedidoNovo_Click);
             // 
             // dgvPedidoProdutos
             // 
@@ -1428,17 +1486,63 @@
             this.dgvPedidoProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPedidoProdutos.BackgroundColor = System.Drawing.Color.Linen;
             this.dgvPedidoProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedidoProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colProdutoVenda,
             this.colQuantiade,
             this.colValorUnitario,
-            this.colValorTotal});
+            this.colValorTotal,
+            this.colProdutoId});
             this.dgvPedidoProdutos.Location = new System.Drawing.Point(19, 394);
             this.dgvPedidoProdutos.Name = "dgvPedidoProdutos";
             this.dgvPedidoProdutos.ReadOnly = true;
-            this.dgvPedidoProdutos.Size = new System.Drawing.Size(870, 155);
-            this.dgvPedidoProdutos.TabIndex = 25;
+            this.dgvPedidoProdutos.Size = new System.Drawing.Size(870, 166);
+            this.dgvPedidoProdutos.TabIndex = 12;
+            this.dgvPedidoProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidoProdutos_CellClick);
+            // 
+            // colProdutoVenda
+            // 
+            this.colProdutoVenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colProdutoVenda.DataPropertyName = "Produto";
+            this.colProdutoVenda.HeaderText = "Produto";
+            this.colProdutoVenda.MinimumWidth = 150;
+            this.colProdutoVenda.Name = "colProdutoVenda";
+            this.colProdutoVenda.ReadOnly = true;
+            // 
+            // colQuantiade
+            // 
+            this.colQuantiade.DataPropertyName = "quantidade";
+            this.colQuantiade.HeaderText = "Quantidade";
+            this.colQuantiade.MinimumWidth = 100;
+            this.colQuantiade.Name = "colQuantiade";
+            this.colQuantiade.ReadOnly = true;
+            // 
+            // colValorUnitario
+            // 
+            this.colValorUnitario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colValorUnitario.DataPropertyName = "valorunitario";
+            this.colValorUnitario.HeaderText = "Valor Unitário";
+            this.colValorUnitario.MinimumWidth = 150;
+            this.colValorUnitario.Name = "colValorUnitario";
+            this.colValorUnitario.ReadOnly = true;
+            // 
+            // colValorTotal
+            // 
+            this.colValorTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colValorTotal.DataPropertyName = "valortotal";
+            this.colValorTotal.HeaderText = "Valor Total";
+            this.colValorTotal.MinimumWidth = 100;
+            this.colValorTotal.Name = "colValorTotal";
+            this.colValorTotal.ReadOnly = true;
+            // 
+            // colProdutoId
+            // 
+            this.colProdutoId.DataPropertyName = "produtos_id";
+            this.colProdutoId.HeaderText = "ProdutoID";
+            this.colProdutoId.Name = "colProdutoId";
+            this.colProdutoId.ReadOnly = true;
+            this.colProdutoId.Visible = false;
             // 
             // label27
             // 
@@ -1450,53 +1554,54 @@
             this.label27.TabIndex = 24;
             this.label27.Text = "Lista de Produtos no pedido:";
             // 
-            // groupBox3
+            // grpDadosProdutoPedido
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grpDadosProdutoPedido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.kryptonButton5);
-            this.groupBox3.Controls.Add(this.cmbPedidoProdutos);
-            this.groupBox3.Controls.Add(this.kryptonButton4);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.txtPedidoProdutoValorTotal);
-            this.groupBox3.Controls.Add(this.txtPedidoProdutoValorUnitario);
-            this.groupBox3.Controls.Add(this.nudPedidoProdutoQuantidade);
-            this.groupBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(21, 201);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(868, 170);
-            this.groupBox3.TabIndex = 23;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Dados do Produto";
+            this.grpDadosProdutoPedido.Controls.Add(this.lbProdutoNomePedido);
+            this.grpDadosProdutoPedido.Controls.Add(this.btnPedidoRemoverProduto);
+            this.grpDadosProdutoPedido.Controls.Add(this.cmbPedidoProdutos);
+            this.grpDadosProdutoPedido.Controls.Add(this.btnPedidoSalvarProduto);
+            this.grpDadosProdutoPedido.Controls.Add(this.lbProdutoValorTotalitemPedido);
+            this.grpDadosProdutoPedido.Controls.Add(this.lbProdutoValorUnidadePedido);
+            this.grpDadosProdutoPedido.Controls.Add(this.lbProdutoQuantidadePedido);
+            this.grpDadosProdutoPedido.Controls.Add(this.txtPedidoProdutoValorTotal);
+            this.grpDadosProdutoPedido.Controls.Add(this.txtPedidoProdutoValorUnitario);
+            this.grpDadosProdutoPedido.Controls.Add(this.nudPedidoProdutoQuantidade);
+            this.grpDadosProdutoPedido.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpDadosProdutoPedido.Location = new System.Drawing.Point(21, 201);
+            this.grpDadosProdutoPedido.Name = "grpDadosProdutoPedido";
+            this.grpDadosProdutoPedido.Size = new System.Drawing.Size(868, 170);
+            this.grpDadosProdutoPedido.TabIndex = 23;
+            this.grpDadosProdutoPedido.TabStop = false;
+            this.grpDadosProdutoPedido.Text = "Dados do Produto";
             // 
-            // label18
+            // lbProdutoNomePedido
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(36, 18);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(61, 16);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "Produto:";
+            this.lbProdutoNomePedido.AutoSize = true;
+            this.lbProdutoNomePedido.Location = new System.Drawing.Point(36, 18);
+            this.lbProdutoNomePedido.Name = "lbProdutoNomePedido";
+            this.lbProdutoNomePedido.Size = new System.Drawing.Size(61, 16);
+            this.lbProdutoNomePedido.TabIndex = 2;
+            this.lbProdutoNomePedido.Text = "Produto:";
             // 
-            // kryptonButton5
+            // btnPedidoRemoverProduto
             // 
-            this.kryptonButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonButton5.Location = new System.Drawing.Point(665, 98);
-            this.kryptonButton5.Name = "kryptonButton5";
-            this.kryptonButton5.Size = new System.Drawing.Size(184, 48);
-            this.kryptonButton5.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnPedidoRemoverProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPedidoRemoverProduto.Location = new System.Drawing.Point(665, 98);
+            this.btnPedidoRemoverProduto.Name = "btnPedidoRemoverProduto";
+            this.btnPedidoRemoverProduto.Size = new System.Drawing.Size(184, 48);
+            this.btnPedidoRemoverProduto.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton5.StateCommon.Border.Rounding = 20;
-            this.kryptonButton5.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
-            this.kryptonButton5.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonButton5.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton5.TabIndex = 17;
-            this.kryptonButton5.Values.Image = global::TestePraticoDeMaria.Properties.Resources.remover__2_;
-            this.kryptonButton5.Values.Text = " Remover";
+            this.btnPedidoRemoverProduto.StateCommon.Border.Rounding = 20;
+            this.btnPedidoRemoverProduto.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
+            this.btnPedidoRemoverProduto.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnPedidoRemoverProduto.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidoRemoverProduto.TabIndex = 11;
+            this.btnPedidoRemoverProduto.Values.Image = global::TestePraticoDeMaria.Properties.Resources.remover__2_;
+            this.btnPedidoRemoverProduto.Values.Text = " Remover";
+            this.btnPedidoRemoverProduto.Click += new System.EventHandler(this.btnPedidoRemoverProduto_Click);
             // 
             // cmbPedidoProdutos
             // 
@@ -1512,59 +1617,62 @@
             this.cmbPedidoProdutos.StateCommon.ComboBox.Border.Rounding = 18;
             this.cmbPedidoProdutos.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPedidoProdutos.StateCommon.ComboBox.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.cmbPedidoProdutos.TabIndex = 5;
+            this.cmbPedidoProdutos.TabIndex = 6;
+            this.cmbPedidoProdutos.SelectedValueChanged += new System.EventHandler(this.cmbPedidoProdutos_SelectedValueChanged);
             // 
-            // kryptonButton4
+            // btnPedidoSalvarProduto
             // 
-            this.kryptonButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonButton4.Location = new System.Drawing.Point(462, 98);
-            this.kryptonButton4.Name = "kryptonButton4";
-            this.kryptonButton4.Size = new System.Drawing.Size(184, 48);
-            this.kryptonButton4.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnPedidoSalvarProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPedidoSalvarProduto.Location = new System.Drawing.Point(462, 98);
+            this.btnPedidoSalvarProduto.Name = "btnPedidoSalvarProduto";
+            this.btnPedidoSalvarProduto.Size = new System.Drawing.Size(184, 48);
+            this.btnPedidoSalvarProduto.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton4.StateCommon.Border.Rounding = 20;
-            this.kryptonButton4.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
-            this.kryptonButton4.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonButton4.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton4.TabIndex = 17;
-            this.kryptonButton4.Values.Image = global::TestePraticoDeMaria.Properties.Resources.Adicionar;
-            this.kryptonButton4.Values.Text = " Adicionar";
+            this.btnPedidoSalvarProduto.StateCommon.Border.Rounding = 20;
+            this.btnPedidoSalvarProduto.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
+            this.btnPedidoSalvarProduto.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnPedidoSalvarProduto.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidoSalvarProduto.TabIndex = 10;
+            this.btnPedidoSalvarProduto.Values.Image = global::TestePraticoDeMaria.Properties.Resources.Adicionar;
+            this.btnPedidoSalvarProduto.Values.Text = " Adicionar";
+            this.btnPedidoSalvarProduto.Click += new System.EventHandler(this.btnPedidoSalvarProduto_Click);
             // 
-            // label23
+            // lbProdutoValorTotalitemPedido
             // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(214, 94);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(79, 16);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "Valor Total:";
+            this.lbProdutoValorTotalitemPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbProdutoValorTotalitemPedido.AutoSize = true;
+            this.lbProdutoValorTotalitemPedido.Location = new System.Drawing.Point(214, 94);
+            this.lbProdutoValorTotalitemPedido.Name = "lbProdutoValorTotalitemPedido";
+            this.lbProdutoValorTotalitemPedido.Size = new System.Drawing.Size(79, 16);
+            this.lbProdutoValorTotalitemPedido.TabIndex = 2;
+            this.lbProdutoValorTotalitemPedido.Text = "Valor Total:";
             // 
-            // label19
+            // lbProdutoValorUnidadePedido
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(36, 94);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(98, 16);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "Valor Unitário:";
+            this.lbProdutoValorUnidadePedido.AutoSize = true;
+            this.lbProdutoValorUnidadePedido.Location = new System.Drawing.Point(36, 94);
+            this.lbProdutoValorUnidadePedido.Name = "lbProdutoValorUnidadePedido";
+            this.lbProdutoValorUnidadePedido.Size = new System.Drawing.Size(98, 16);
+            this.lbProdutoValorUnidadePedido.TabIndex = 2;
+            this.lbProdutoValorUnidadePedido.Text = "Valor Unitário:";
             // 
-            // label22
+            // lbProdutoQuantidadePedido
             // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(676, 18);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(85, 16);
-            this.label22.TabIndex = 6;
-            this.label22.Text = "Quantidade:";
+            this.lbProdutoQuantidadePedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbProdutoQuantidadePedido.AutoSize = true;
+            this.lbProdutoQuantidadePedido.Location = new System.Drawing.Point(676, 18);
+            this.lbProdutoQuantidadePedido.Name = "lbProdutoQuantidadePedido";
+            this.lbProdutoQuantidadePedido.Size = new System.Drawing.Size(85, 16);
+            this.lbProdutoQuantidadePedido.TabIndex = 6;
+            this.lbProdutoQuantidadePedido.Text = "Quantidade:";
             // 
             // txtPedidoProdutoValorTotal
             // 
             this.txtPedidoProdutoValorTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPedidoProdutoValorTotal.Location = new System.Drawing.Point(200, 113);
             this.txtPedidoProdutoValorTotal.Name = "txtPedidoProdutoValorTotal";
+            this.txtPedidoProdutoValorTotal.ReadOnly = true;
             this.txtPedidoProdutoValorTotal.Size = new System.Drawing.Size(239, 33);
             this.txtPedidoProdutoValorTotal.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -1572,7 +1680,7 @@
             this.txtPedidoProdutoValorTotal.StateCommon.Border.Rounding = 18;
             this.txtPedidoProdutoValorTotal.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPedidoProdutoValorTotal.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtPedidoProdutoValorTotal.TabIndex = 0;
+            this.txtPedidoProdutoValorTotal.TabIndex = 9;
             // 
             // txtPedidoProdutoValorUnitario
             // 
@@ -1580,6 +1688,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPedidoProdutoValorUnitario.Location = new System.Drawing.Point(22, 113);
             this.txtPedidoProdutoValorUnitario.Name = "txtPedidoProdutoValorUnitario";
+            this.txtPedidoProdutoValorUnitario.ReadOnly = true;
             this.txtPedidoProdutoValorUnitario.Size = new System.Drawing.Size(154, 33);
             this.txtPedidoProdutoValorUnitario.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -1587,7 +1696,7 @@
             this.txtPedidoProdutoValorUnitario.StateCommon.Border.Rounding = 18;
             this.txtPedidoProdutoValorUnitario.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPedidoProdutoValorUnitario.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtPedidoProdutoValorUnitario.TabIndex = 0;
+            this.txtPedidoProdutoValorUnitario.TabIndex = 8;
             // 
             // nudPedidoProdutoQuantidade
             // 
@@ -1607,49 +1716,51 @@
             0,
             0,
             0});
+            this.nudPedidoProdutoQuantidade.ValueChanged += new System.EventHandler(this.nudPedidoProdutoQuantidade_ValueChanged);
             // 
-            // groupBox2
+            // grpDadosPedido
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grpDadosPedido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.txtPedidoObservacao);
-            this.groupBox2.Controls.Add(this.cmbPedidoClientes);
-            this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.label37);
-            this.groupBox2.Controls.Add(this.label36);
-            this.groupBox2.Controls.Add(this.label35);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.kryptonTextBox3);
-            this.groupBox2.Controls.Add(this.kryptonTextBox2);
-            this.groupBox2.Controls.Add(this.kryptonTextBox1);
-            this.groupBox2.Controls.Add(this.txtPedidoNumero);
-            this.groupBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(21, 16);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(868, 179);
-            this.groupBox2.TabIndex = 21;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Dados do Pedido";
+            this.grpDadosPedido.Controls.Add(this.lbObservacaoPedido);
+            this.grpDadosPedido.Controls.Add(this.txtPedidoObservacao);
+            this.grpDadosPedido.Controls.Add(this.cmbPedidoClientes);
+            this.grpDadosPedido.Controls.Add(this.btnPedidoVoltar);
+            this.grpDadosPedido.Controls.Add(this.btnPedidoAvancar);
+            this.grpDadosPedido.Controls.Add(this.lbClientePedido);
+            this.grpDadosPedido.Controls.Add(this.lbDataCancelamentoPedido);
+            this.grpDadosPedido.Controls.Add(this.lbDataConclusaoPedido);
+            this.grpDadosPedido.Controls.Add(this.lbDataPedido);
+            this.grpDadosPedido.Controls.Add(this.lbNumeroPedido);
+            this.grpDadosPedido.Controls.Add(this.txtPedidoDataCancelado);
+            this.grpDadosPedido.Controls.Add(this.txtPedidoDataFinalizado);
+            this.grpDadosPedido.Controls.Add(this.txtPedidoDataInclusao);
+            this.grpDadosPedido.Controls.Add(this.txtPedidoNumero);
+            this.grpDadosPedido.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpDadosPedido.Location = new System.Drawing.Point(21, 16);
+            this.grpDadosPedido.Name = "grpDadosPedido";
+            this.grpDadosPedido.Size = new System.Drawing.Size(868, 179);
+            this.grpDadosPedido.TabIndex = 21;
+            this.grpDadosPedido.TabStop = false;
+            this.grpDadosPedido.Text = "Dados do Pedido";
             // 
-            // label17
+            // lbObservacaoPedido
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(36, 103);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(86, 16);
-            this.label17.TabIndex = 6;
-            this.label17.Text = "Observação:";
+            this.lbObservacaoPedido.AutoSize = true;
+            this.lbObservacaoPedido.Location = new System.Drawing.Point(36, 84);
+            this.lbObservacaoPedido.Name = "lbObservacaoPedido";
+            this.lbObservacaoPedido.Size = new System.Drawing.Size(86, 16);
+            this.lbObservacaoPedido.TabIndex = 6;
+            this.lbObservacaoPedido.Text = "Observação:";
             // 
             // txtPedidoObservacao
             // 
-            this.txtPedidoObservacao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPedidoObservacao.Location = new System.Drawing.Point(19, 122);
+            this.txtPedidoObservacao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtPedidoObservacao.Location = new System.Drawing.Point(19, 103);
             this.txtPedidoObservacao.Multiline = true;
             this.txtPedidoObservacao.Name = "txtPedidoObservacao";
-            this.txtPedidoObservacao.Size = new System.Drawing.Size(822, 42);
+            this.txtPedidoObservacao.Size = new System.Drawing.Size(508, 61);
             this.txtPedidoObservacao.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -1663,7 +1774,7 @@
             this.cmbPedidoClientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbPedidoClientes.DropDownWidth = 210;
-            this.cmbPedidoClientes.Location = new System.Drawing.Point(533, 52);
+            this.cmbPedidoClientes.Location = new System.Drawing.Point(536, 103);
             this.cmbPedidoClientes.Name = "cmbPedidoClientes";
             this.cmbPedidoClientes.Size = new System.Drawing.Size(326, 36);
             this.cmbPedidoClientes.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -1672,100 +1783,137 @@
             this.cmbPedidoClientes.StateCommon.ComboBox.Border.Rounding = 18;
             this.cmbPedidoClientes.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPedidoClientes.StateCommon.ComboBox.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.cmbPedidoClientes.TabIndex = 5;
+            this.cmbPedidoClientes.TabIndex = 4;
+            this.cmbPedidoClientes.SelectedValueChanged += new System.EventHandler(this.cmbPedidoClientes_SelectedValueChanged);
             // 
-            // label21
+            // btnPedidoVoltar
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(551, 34);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(56, 16);
-            this.label21.TabIndex = 2;
-            this.label21.Text = "Cliente:";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(416, 36);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(112, 16);
-            this.label37.TabIndex = 2;
-            this.label37.Text = "Data Cancelado:";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(306, 36);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(108, 16);
-            this.label36.TabIndex = 2;
-            this.label36.Text = "Data Concluido:";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(197, 36);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(89, 16);
-            this.label35.TabIndex = 2;
-            this.label35.Text = "Data Pedido:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(36, 36);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(130, 16);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "Número do Pedido:";
-            // 
-            // kryptonTextBox3
-            // 
-            this.kryptonTextBox3.Enabled = false;
-            this.kryptonTextBox3.Location = new System.Drawing.Point(416, 55);
-            this.kryptonTextBox3.Name = "kryptonTextBox3";
-            this.kryptonTextBox3.Size = new System.Drawing.Size(111, 33);
-            this.kryptonTextBox3.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnPedidoVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPedidoVoltar.Location = new System.Drawing.Point(639, 20);
+            this.btnPedidoVoltar.Name = "btnPedidoVoltar";
+            this.btnPedidoVoltar.Size = new System.Drawing.Size(110, 48);
+            this.btnPedidoVoltar.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonTextBox3.StateCommon.Border.Rounding = 18;
-            this.kryptonTextBox3.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonTextBox3.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.kryptonTextBox3.TabIndex = 0;
+            this.btnPedidoVoltar.StateCommon.Border.Rounding = 20;
+            this.btnPedidoVoltar.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
+            this.btnPedidoVoltar.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnPedidoVoltar.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidoVoltar.TabIndex = 17;
+            this.btnPedidoVoltar.Values.Image = global::TestePraticoDeMaria.Properties.Resources.seta__4_;
+            this.btnPedidoVoltar.Values.Text = "Anterior";
+            this.btnPedidoVoltar.Click += new System.EventHandler(this.btnPedidoVoltar_Click);
             // 
-            // kryptonTextBox2
+            // btnPedidoAvancar
             // 
-            this.kryptonTextBox2.Enabled = false;
-            this.kryptonTextBox2.Location = new System.Drawing.Point(299, 55);
-            this.kryptonTextBox2.Name = "kryptonTextBox2";
-            this.kryptonTextBox2.Size = new System.Drawing.Size(111, 33);
-            this.kryptonTextBox2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnPedidoAvancar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPedidoAvancar.Location = new System.Drawing.Point(755, 20);
+            this.btnPedidoAvancar.Name = "btnPedidoAvancar";
+            this.btnPedidoAvancar.Size = new System.Drawing.Size(107, 48);
+            this.btnPedidoAvancar.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonTextBox2.StateCommon.Border.Rounding = 18;
-            this.kryptonTextBox2.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonTextBox2.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.kryptonTextBox2.TabIndex = 0;
+            this.btnPedidoAvancar.StateCommon.Border.Rounding = 20;
+            this.btnPedidoAvancar.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
+            this.btnPedidoAvancar.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.btnPedidoAvancar.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidoAvancar.TabIndex = 17;
+            this.btnPedidoAvancar.Values.Image = global::TestePraticoDeMaria.Properties.Resources.seta__3_;
+            this.btnPedidoAvancar.Values.Text = "Próximo";
+            this.btnPedidoAvancar.Click += new System.EventHandler(this.btnPedidoAvancar_Click);
             // 
-            // kryptonTextBox1
+            // lbClientePedido
             // 
-            this.kryptonTextBox1.Enabled = false;
-            this.kryptonTextBox1.Location = new System.Drawing.Point(182, 55);
-            this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(111, 33);
-            this.kryptonTextBox1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.lbClientePedido.AutoSize = true;
+            this.lbClientePedido.Location = new System.Drawing.Point(554, 85);
+            this.lbClientePedido.Name = "lbClientePedido";
+            this.lbClientePedido.Size = new System.Drawing.Size(56, 16);
+            this.lbClientePedido.TabIndex = 2;
+            this.lbClientePedido.Text = "Cliente:";
+            // 
+            // lbDataCancelamentoPedido
+            // 
+            this.lbDataCancelamentoPedido.AutoSize = true;
+            this.lbDataCancelamentoPedido.Location = new System.Drawing.Point(416, 25);
+            this.lbDataCancelamentoPedido.Name = "lbDataCancelamentoPedido";
+            this.lbDataCancelamentoPedido.Size = new System.Drawing.Size(112, 16);
+            this.lbDataCancelamentoPedido.TabIndex = 2;
+            this.lbDataCancelamentoPedido.Text = "Data Cancelado:";
+            // 
+            // lbDataConclusaoPedido
+            // 
+            this.lbDataConclusaoPedido.AutoSize = true;
+            this.lbDataConclusaoPedido.Location = new System.Drawing.Point(306, 25);
+            this.lbDataConclusaoPedido.Name = "lbDataConclusaoPedido";
+            this.lbDataConclusaoPedido.Size = new System.Drawing.Size(108, 16);
+            this.lbDataConclusaoPedido.TabIndex = 2;
+            this.lbDataConclusaoPedido.Text = "Data Concluido:";
+            // 
+            // lbDataPedido
+            // 
+            this.lbDataPedido.AutoSize = true;
+            this.lbDataPedido.Location = new System.Drawing.Point(197, 25);
+            this.lbDataPedido.Name = "lbDataPedido";
+            this.lbDataPedido.Size = new System.Drawing.Size(89, 16);
+            this.lbDataPedido.TabIndex = 2;
+            this.lbDataPedido.Text = "Data Pedido:";
+            // 
+            // lbNumeroPedido
+            // 
+            this.lbNumeroPedido.AutoSize = true;
+            this.lbNumeroPedido.Location = new System.Drawing.Point(36, 25);
+            this.lbNumeroPedido.Name = "lbNumeroPedido";
+            this.lbNumeroPedido.Size = new System.Drawing.Size(130, 16);
+            this.lbNumeroPedido.TabIndex = 2;
+            this.lbNumeroPedido.Text = "Número do Pedido:";
+            // 
+            // txtPedidoDataCancelado
+            // 
+            this.txtPedidoDataCancelado.Location = new System.Drawing.Point(416, 44);
+            this.txtPedidoDataCancelado.Name = "txtPedidoDataCancelado";
+            this.txtPedidoDataCancelado.ReadOnly = true;
+            this.txtPedidoDataCancelado.Size = new System.Drawing.Size(111, 33);
+            this.txtPedidoDataCancelado.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonTextBox1.StateCommon.Border.Rounding = 18;
-            this.kryptonTextBox1.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonTextBox1.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.kryptonTextBox1.TabIndex = 0;
+            this.txtPedidoDataCancelado.StateCommon.Border.Rounding = 18;
+            this.txtPedidoDataCancelado.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPedidoDataCancelado.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.txtPedidoDataCancelado.TabIndex = 99;
+            // 
+            // txtPedidoDataFinalizado
+            // 
+            this.txtPedidoDataFinalizado.Location = new System.Drawing.Point(299, 44);
+            this.txtPedidoDataFinalizado.Name = "txtPedidoDataFinalizado";
+            this.txtPedidoDataFinalizado.ReadOnly = true;
+            this.txtPedidoDataFinalizado.Size = new System.Drawing.Size(111, 33);
+            this.txtPedidoDataFinalizado.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtPedidoDataFinalizado.StateCommon.Border.Rounding = 18;
+            this.txtPedidoDataFinalizado.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPedidoDataFinalizado.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.txtPedidoDataFinalizado.TabIndex = 99;
+            // 
+            // txtPedidoDataInclusao
+            // 
+            this.txtPedidoDataInclusao.Location = new System.Drawing.Point(182, 44);
+            this.txtPedidoDataInclusao.Name = "txtPedidoDataInclusao";
+            this.txtPedidoDataInclusao.ReadOnly = true;
+            this.txtPedidoDataInclusao.Size = new System.Drawing.Size(111, 33);
+            this.txtPedidoDataInclusao.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtPedidoDataInclusao.StateCommon.Border.Rounding = 18;
+            this.txtPedidoDataInclusao.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPedidoDataInclusao.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.txtPedidoDataInclusao.TabIndex = 99;
             // 
             // txtPedidoNumero
             // 
-            this.txtPedidoNumero.Enabled = false;
-            this.txtPedidoNumero.Location = new System.Drawing.Point(22, 55);
+            this.txtPedidoNumero.Location = new System.Drawing.Point(22, 44);
             this.txtPedidoNumero.Name = "txtPedidoNumero";
+            this.txtPedidoNumero.ReadOnly = true;
             this.txtPedidoNumero.Size = new System.Drawing.Size(154, 33);
             this.txtPedidoNumero.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -1773,16 +1921,16 @@
             this.txtPedidoNumero.StateCommon.Border.Rounding = 18;
             this.txtPedidoNumero.StateCommon.Content.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPedidoNumero.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtPedidoNumero.TabIndex = 0;
+            this.txtPedidoNumero.TabIndex = 99;
             // 
             // tpRelatorios
             // 
             this.tpRelatorios.Controls.Add(this.kryptonGroupBox2);
-            this.tpRelatorios.Controls.Add(this.reportViewer1);
+            this.tpRelatorios.Controls.Add(this.rvwRelatorios);
             this.tpRelatorios.Location = new System.Drawing.Point(4, 25);
             this.tpRelatorios.Name = "tpRelatorios";
             this.tpRelatorios.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRelatorios.Size = new System.Drawing.Size(1197, 565);
+            this.tpRelatorios.Size = new System.Drawing.Size(1197, 571);
             this.tpRelatorios.TabIndex = 4;
             this.tpRelatorios.Text = "Relatórios";
             this.tpRelatorios.UseVisualStyleBackColor = true;
@@ -1800,25 +1948,26 @@
             this.kryptonGroupBox2.Panel.Controls.Add(this.label32);
             this.kryptonGroupBox2.Panel.Controls.Add(this.label33);
             this.kryptonGroupBox2.Panel.Controls.Add(this.label30);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.dateTimePicker2);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.dateTimePicker1);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.kryptonButton8);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.listBox1);
-            this.kryptonGroupBox2.Size = new System.Drawing.Size(269, 559);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.dtpDataFinal);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.dtpDataInicial);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.btnGerarRelatorio);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.lstRelatorios);
+            this.kryptonGroupBox2.Size = new System.Drawing.Size(269, 565);
             this.kryptonGroupBox2.StateCommon.Back.Color1 = System.Drawing.Color.Linen;
             this.kryptonGroupBox2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonGroupBox2.StateCommon.Border.Rounding = 10;
-            this.kryptonGroupBox2.TabIndex = 21;
+            this.kryptonGroupBox2.TabIndex = 1;
             this.kryptonGroupBox2.Values.Heading = "";
             // 
             // label32
             // 
+            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label32.AutoSize = true;
             this.label32.BackColor = System.Drawing.Color.Transparent;
             this.label32.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(129, 387);
+            this.label32.Location = new System.Drawing.Point(129, 432);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(72, 16);
             this.label32.TabIndex = 19;
@@ -1837,68 +1986,98 @@
             // 
             // label30
             // 
+            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label30.AutoSize = true;
             this.label30.BackColor = System.Drawing.Color.Transparent;
             this.label30.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(17, 387);
+            this.label30.Location = new System.Drawing.Point(17, 432);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(79, 16);
             this.label30.TabIndex = 19;
             this.label30.Text = "Data Inicial";
             // 
-            // dateTimePicker2
+            // dtpDataFinal
             // 
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(132, 406);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(103, 22);
-            this.dateTimePicker2.TabIndex = 18;
+            this.dtpDataFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtpDataFinal.CalendarFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataFinal.Enabled = false;
+            this.dtpDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataFinal.Location = new System.Drawing.Point(132, 451);
+            this.dtpDataFinal.Name = "dtpDataFinal";
+            this.dtpDataFinal.Size = new System.Drawing.Size(103, 22);
+            this.dtpDataFinal.TabIndex = 4;
             // 
-            // dateTimePicker1
+            // dtpDataInicial
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(20, 406);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(103, 22);
-            this.dateTimePicker1.TabIndex = 18;
+            this.dtpDataInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtpDataInicial.CalendarFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataInicial.Enabled = false;
+            this.dtpDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataInicial.Location = new System.Drawing.Point(20, 451);
+            this.dtpDataInicial.Name = "dtpDataInicial";
+            this.dtpDataInicial.Size = new System.Drawing.Size(103, 22);
+            this.dtpDataInicial.TabIndex = 3;
             // 
-            // kryptonButton8
+            // btnGerarRelatorio
             // 
-            this.kryptonButton8.Location = new System.Drawing.Point(20, 451);
-            this.kryptonButton8.Name = "kryptonButton8";
-            this.kryptonButton8.Size = new System.Drawing.Size(215, 48);
-            this.kryptonButton8.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnGerarRelatorio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGerarRelatorio.Location = new System.Drawing.Point(20, 484);
+            this.btnGerarRelatorio.Name = "btnGerarRelatorio";
+            this.btnGerarRelatorio.Size = new System.Drawing.Size(215, 48);
+            this.btnGerarRelatorio.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton8.StateCommon.Border.Rounding = 20;
-            this.kryptonButton8.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
-            this.kryptonButton8.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonButton8.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton8.TabIndex = 17;
-            this.kryptonButton8.Values.Image = global::TestePraticoDeMaria.Properties.Resources.grafico__1_;
-            this.kryptonButton8.Values.Text = " Gerar Relatório";
+            this.btnGerarRelatorio.StateCommon.Border.Rounding = 20;
+            this.btnGerarRelatorio.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.Normal;
+            this.btnGerarRelatorio.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnGerarRelatorio.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGerarRelatorio.TabIndex = 5;
+            this.btnGerarRelatorio.Values.Image = global::TestePraticoDeMaria.Properties.Resources.grafico__1_;
+            this.btnGerarRelatorio.Values.Text = " Gerar Relatório";
+            this.btnGerarRelatorio.Click += new System.EventHandler(this.btnGerarRelatorio_Click);
             // 
-            // listBox1
+            // lstRelatorios
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(20, 30);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(226, 340);
-            this.listBox1.TabIndex = 0;
+            this.lstRelatorios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lstRelatorios.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstRelatorios.FormattingEnabled = true;
+            this.lstRelatorios.ItemHeight = 17;
+            this.lstRelatorios.Items.AddRange(new object[] {
+            "Produtos Estoque",
+            "Clientes",
+            "Vendas Finalizadas"});
+            this.lstRelatorios.Location = new System.Drawing.Point(20, 30);
+            this.lstRelatorios.Name = "lstRelatorios";
+            this.lstRelatorios.Size = new System.Drawing.Size(226, 395);
+            this.lstRelatorios.TabIndex = 2;
+            this.lstRelatorios.SelectedValueChanged += new System.EventHandler(this.lstRelatorios_SelectedValueChanged);
             // 
-            // reportViewer1
+            // rvwRelatorios
             // 
-            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.rvwRelatorios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.reportViewer1.Location = new System.Drawing.Point(278, 6);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(916, 556);
-            this.reportViewer1.TabIndex = 1;
+            this.rvwRelatorios.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rvwRelatorios.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.rvwRelatorios.DocumentMapCollapsed = true;
+            this.rvwRelatorios.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rvwRelatorios.LocalReport.ReportEmbeddedResource = "TestePraticoDeMaria.Relatorios.rptProdutosEstoque.rdlc";
+            this.rvwRelatorios.Location = new System.Drawing.Point(278, 6);
+            this.rvwRelatorios.Name = "rvwRelatorios";
+            this.rvwRelatorios.ServerReport.BearerToken = null;
+            this.rvwRelatorios.ShowBackButton = false;
+            this.rvwRelatorios.ShowContextMenu = false;
+            this.rvwRelatorios.ShowCredentialPrompts = false;
+            this.rvwRelatorios.ShowDocumentMapButton = false;
+            this.rvwRelatorios.ShowFindControls = false;
+            this.rvwRelatorios.ShowParameterPrompts = false;
+            this.rvwRelatorios.ShowProgress = false;
+            this.rvwRelatorios.ShowPromptAreaButton = false;
+            this.rvwRelatorios.ShowRefreshButton = false;
+            this.rvwRelatorios.ShowStopButton = false;
+            this.rvwRelatorios.Size = new System.Drawing.Size(916, 562);
+            this.rvwRelatorios.TabIndex = 1;
             // 
             // btnClientes
             // 
@@ -1991,76 +2170,10 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btnConfiguracao.StateCommon.Border.Rounding = 20;
-            this.btnConfiguracao.TabIndex = 1;
+            this.btnConfiguracao.TabIndex = 5;
             this.btnConfiguracao.Values.Image = global::TestePraticoDeMaria.Properties.Resources.configuracao;
             this.btnConfiguracao.Values.Text = "";
             this.btnConfiguracao.Click += new System.EventHandler(this.btnConfiguracao_Click);
-            // 
-            // colProdutoVenda
-            // 
-            this.colProdutoVenda.HeaderText = "Produto";
-            this.colProdutoVenda.Name = "colProdutoVenda";
-            this.colProdutoVenda.ReadOnly = true;
-            // 
-            // colQuantiade
-            // 
-            this.colQuantiade.HeaderText = "Quantidade";
-            this.colQuantiade.Name = "colQuantiade";
-            this.colQuantiade.ReadOnly = true;
-            // 
-            // colValorUnitario
-            // 
-            this.colValorUnitario.HeaderText = "Valor Unitário";
-            this.colValorUnitario.Name = "colValorUnitario";
-            this.colValorUnitario.ReadOnly = true;
-            this.colValorUnitario.Width = 150;
-            // 
-            // colValorTotal
-            // 
-            this.colValorTotal.HeaderText = "Valor Total";
-            this.colValorTotal.Name = "colValorTotal";
-            this.colValorTotal.ReadOnly = true;
-            // 
-            // colProduto
-            // 
-            this.colProduto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colProduto.DataPropertyName = "produto";
-            this.colProduto.HeaderText = "Produto";
-            this.colProduto.MinimumWidth = 150;
-            this.colProduto.Name = "colProduto";
-            this.colProduto.ReadOnly = true;
-            // 
-            // colPrecoUnitario
-            // 
-            this.colPrecoUnitario.DataPropertyName = "precounitario";
-            this.colPrecoUnitario.HeaderText = "Preço";
-            this.colPrecoUnitario.Name = "colPrecoUnitario";
-            this.colPrecoUnitario.ReadOnly = true;
-            // 
-            // colEstoque
-            // 
-            this.colEstoque.DataPropertyName = "quantidadeestoque";
-            this.colEstoque.HeaderText = "Quantidade em Estoque";
-            this.colEstoque.Name = "colEstoque";
-            this.colEstoque.ReadOnly = true;
-            this.colEstoque.Width = 180;
-            // 
-            // colDescricao
-            // 
-            this.colDescricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescricao.DataPropertyName = "descricao";
-            this.colDescricao.HeaderText = "Descrição";
-            this.colDescricao.MinimumWidth = 100;
-            this.colDescricao.Name = "colDescricao";
-            this.colDescricao.ReadOnly = true;
-            // 
-            // colId
-            // 
-            this.colId.DataPropertyName = "id";
-            this.colId.HeaderText = "id";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            this.colId.Visible = false;
             // 
             // frmMenuPrincipal
             // 
@@ -2071,6 +2184,7 @@
             this.Controls.Add(this.grpNavMenu);
             this.Controls.Add(this.tabInterface);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMenuPrincipal";
             this.Palette = this.krPallet;
@@ -2099,27 +2213,27 @@
             this.tpProdutos.ResumeLayout(false);
             this.tpProdutos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutoPesquisa)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpDadosProduto.ResumeLayout(false);
+            this.grpDadosProduto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpProdutoControles.Panel)).EndInit();
             this.grpProdutoControles.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpProdutoControles)).EndInit();
             this.grpProdutoControles.ResumeLayout(false);
             this.tpVenda.ResumeLayout(false);
             this.tpVenda.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.grpResumoPedido.ResumeLayout(false);
+            this.grpResumoPedido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).EndInit();
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             this.kryptonGroupBox1.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoProdutos)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grpDadosProdutoPedido.ResumeLayout(false);
+            this.grpDadosProdutoPedido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPedidoProdutos)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpDadosPedido.ResumeLayout(false);
+            this.grpDadosPedido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPedidoClientes)).EndInit();
             this.tpRelatorios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2.Panel)).EndInit();
@@ -2155,30 +2269,30 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtClienteCpfCnpj;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtClienteNome;
         private System.Windows.Forms.CheckBox chkPessoaJuridica;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbNomeCliente;
+        private System.Windows.Forms.Label lbPesquisaCliente;
+        private System.Windows.Forms.Label lbCpfCnpjCliente;
+        private System.Windows.Forms.Label lbCepCliente;
+        private System.Windows.Forms.Label lbTelefoneCliente;
+        private System.Windows.Forms.Label lbEmailCliente;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClientePesquisarCEP;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtClienteTelefoneCelular;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtClienteEnderecoCEP;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtClienteEmail;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbComplementoEnderecoCliente;
+        private System.Windows.Forms.Label lbNumeroCasaCliente;
+        private System.Windows.Forms.Label lbLogradouroCLiente;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtClienteEnderecoNumero;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtClienteEnderecoComplemento;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtClienteEnderecoLogradouro;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbClienteEnderecoUf;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbEstadoCliente;
+        private System.Windows.Forms.Label lbLocalidadeEnderecoCliente;
+        private System.Windows.Forms.Label lbBairroEnderecoCliente;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtClienteEnderecoLocalidade;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtClienteEnderecoBairro;
         private System.Windows.Forms.DataGridView dgvClientePesquisa;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbResultadoConsultaCliente;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox grpNavMenu;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClienteNovo;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClienteRemover;
@@ -2189,71 +2303,71 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnProdutoSalvar;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnProdutoNovo;
         private System.Windows.Forms.DataGridView dgvProdutoPesquisa;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label lbPesquisaProduto;
+        private System.Windows.Forms.GroupBox grpDadosProduto;
+        private System.Windows.Forms.Label lbDescricaoProduto;
+        private System.Windows.Forms.Label lbNomeProduto;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtProdutoDescricao;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtProdutoNome;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtProdutoPesquisa;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnProdutoPesquisar;
-        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label lbResultadoPesquisaProduto;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown nudProdutoQuantidadeEstoque;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbQuantidadeEstoqueProduto;
+        private System.Windows.Forms.Label lbPrecoProduto;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtProdutoPreco;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.GroupBox grpDadosPedido;
+        private System.Windows.Forms.Label lbNumeroPedido;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoNumero;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbPedidoProdutos;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbPedidoClientes;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label21;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton5;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton4;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbProdutoNomePedido;
+        private System.Windows.Forms.Label lbClientePedido;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnPedidoRemoverProduto;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnPedidoSalvarProduto;
+        private System.Windows.Forms.Label lbObservacaoPedido;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoObservacao;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.GroupBox grpDadosProdutoPedido;
+        private System.Windows.Forms.Label lbProdutoQuantidadePedido;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown nudPedidoProdutoQuantidade;
         private System.Windows.Forms.DataGridView dgvPedidoProdutos;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lbProdutoValorTotalitemPedido;
+        private System.Windows.Forms.Label lbProdutoValorUnidadePedido;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoProdutoValorTotal;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoProdutoValorUnitario;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private System.Windows.Forms.Label label28;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnPedidoCaixa;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoPesquisa;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton7;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton6;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label31;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnPedidoPesquisar;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnPedidoFinalizar;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnPedidoSalvar;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnPedidoNovo;
+        private System.Windows.Forms.GroupBox grpResumoPedido;
+        private System.Windows.Forms.Label lbResumoValorTotal;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoValorTotal;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.ListBox listBox1;
+        private Microsoft.Reporting.WinForms.ReportViewer rvwRelatorios;
+        private System.Windows.Forms.ListBox lstRelatorios;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton8;
+        private System.Windows.Forms.DateTimePicker dtpDataFinal;
+        private System.Windows.Forms.DateTimePicker dtpDataInicial;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnGerarRelatorio;
         private System.Windows.Forms.Label label33;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnConfiguracao;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label35;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox3;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton9;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label29;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox5;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox4;
+        private System.Windows.Forms.Label lbDataCancelamentoPedido;
+        private System.Windows.Forms.Label lbDataConclusaoPedido;
+        private System.Windows.Forms.Label lbDataPedido;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoDataCancelado;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoDataFinalizado;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoDataInclusao;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnPedidoCancelar;
+        private System.Windows.Forms.Label lbResumoValorSaldo;
+        private System.Windows.Forms.Label lbResumoValorPago;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoSaldo;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPedidoValorPago;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCpfCnpj;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colPessoaJuridica;
@@ -2268,14 +2382,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn colClienteId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEnderecoId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProdutoVenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colQuantiade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colValorUnitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colValorTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecoUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstoque;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnPedidoVoltar;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnPedidoAvancar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdutoVenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQuantiade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValorUnitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValorTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdutoId;
     }
 }

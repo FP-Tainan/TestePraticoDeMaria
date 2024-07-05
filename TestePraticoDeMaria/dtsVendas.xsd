@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dtsVendas" targetNamespace="http://tempuri.org/dtsVendas.xsd" xmlns:mstns="http://tempuri.org/dtsVendas.xsd" xmlns="http://tempuri.org/dtsVendas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="EmpresaXConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EmpresaXConnectionString (Settings)" PropertyReference="ApplicationSettings.TestePraticoDeMaria.Properties.Settings.GlobalReference.Default.EmpresaXConnectionString" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vwvendasfinalizadasTableAdapter" GeneratorDataComponentClassName="vwvendasfinalizadasTableAdapter" Name="vwvendasfinalizadas" UserDataComponentName="vwvendasfinalizadasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmpresaXConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT "nome", "datapedido", "dataconcluido", "finalizado", "valortotalpedido" FROM "public"."vwvendasfinalizadas"</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nome" DataSetColumn="nome" />
+              <Mapping SourceColumn="datapedido" DataSetColumn="datapedido" />
+              <Mapping SourceColumn="dataconcluido" DataSetColumn="dataconcluido" />
+              <Mapping SourceColumn="finalizado" DataSetColumn="finalizado" />
+              <Mapping SourceColumn="valortotalpedido" DataSetColumn="valortotalpedido" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dtsVendas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="dtsVendas" msprop:Generator_DataSetName="dtsVendas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vwvendasfinalizadas" msprop:Generator_RowEvHandlerName="vwvendasfinalizadasRowChangeEventHandler" msprop:Generator_RowDeletedName="vwvendasfinalizadasRowDeleted" msprop:Generator_RowDeletingName="vwvendasfinalizadasRowDeleting" msprop:Generator_RowEvArgName="vwvendasfinalizadasRowChangeEvent" msprop:Generator_TablePropName="vwvendasfinalizadas" msprop:Generator_RowChangedName="vwvendasfinalizadasRowChanged" msprop:Generator_RowChangingName="vwvendasfinalizadasRowChanging" msprop:Generator_TableClassName="vwvendasfinalizadasDataTable" msprop:Generator_RowClassName="vwvendasfinalizadasRow" msprop:Generator_TableVarName="tablevwvendasfinalizadas" msprop:Generator_UserTableName="vwvendasfinalizadas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nome" msprop:Generator_ColumnPropNameInRow="nome" msprop:Generator_ColumnPropNameInTable="nomeColumn" msprop:Generator_ColumnVarNameInTable="columnnome" msprop:Generator_UserColumnName="nome" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="datapedido" msprop:Generator_ColumnPropNameInRow="datapedido" msprop:Generator_ColumnPropNameInTable="datapedidoColumn" msprop:Generator_ColumnVarNameInTable="columndatapedido" msprop:Generator_UserColumnName="datapedido" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="dataconcluido" msprop:Generator_ColumnPropNameInRow="dataconcluido" msprop:Generator_ColumnPropNameInTable="dataconcluidoColumn" msprop:Generator_ColumnVarNameInTable="columndataconcluido" msprop:Generator_UserColumnName="dataconcluido" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="finalizado" msprop:Generator_ColumnPropNameInRow="finalizado" msprop:Generator_ColumnPropNameInTable="finalizadoColumn" msprop:Generator_ColumnVarNameInTable="columnfinalizado" msprop:Generator_UserColumnName="finalizado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="valortotalpedido" msprop:Generator_ColumnPropNameInRow="valortotalpedido" msprop:Generator_ColumnPropNameInTable="valortotalpedidoColumn" msprop:Generator_ColumnVarNameInTable="columnvalortotalpedido" msprop:Generator_UserColumnName="valortotalpedido" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

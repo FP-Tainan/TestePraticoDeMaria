@@ -123,6 +123,16 @@ namespace TestePraticoDeMaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap impressora {
+            get {
+                object obj = ResourceManager.GetObject("impressora", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pacote {
             get {
                 object obj = ResourceManager.GetObject("pacote", resourceCulture);
@@ -166,6 +176,36 @@ namespace TestePraticoDeMaria.Properties {
         internal static System.Drawing.Bitmap Salvar {
             get {
                 object obj = ResourceManager.GetObject("Salvar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seta__2_ {
+            get {
+                object obj = ResourceManager.GetObject("seta (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seta__3_ {
+            get {
+                object obj = ResourceManager.GetObject("seta (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seta__4_ {
+            get {
+                object obj = ResourceManager.GetObject("seta (4)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

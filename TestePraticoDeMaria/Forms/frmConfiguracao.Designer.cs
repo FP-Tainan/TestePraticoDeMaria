@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfiguracao));
             this.krPallet = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.txtServidor = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -77,7 +78,8 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 7);
+            this.label1.Location = new System.Drawing.Point(59, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 4;
@@ -85,9 +87,10 @@
             // 
             // txtServidor
             // 
-            this.txtServidor.Location = new System.Drawing.Point(27, 26);
+            this.txtServidor.Location = new System.Drawing.Point(36, 32);
+            this.txtServidor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtServidor.Name = "txtServidor";
-            this.txtServidor.Size = new System.Drawing.Size(210, 33);
+            this.txtServidor.Size = new System.Drawing.Size(280, 33);
             this.txtServidor.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -98,9 +101,10 @@
             // 
             // btnTestarConexao
             // 
-            this.btnTestarConexao.Location = new System.Drawing.Point(38, 329);
+            this.btnTestarConexao.Location = new System.Drawing.Point(51, 405);
+            this.btnTestarConexao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTestarConexao.Name = "btnTestarConexao";
-            this.btnTestarConexao.Size = new System.Drawing.Size(184, 48);
+            this.btnTestarConexao.Size = new System.Drawing.Size(245, 59);
             this.btnTestarConexao.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -115,9 +119,10 @@
             // 
             // txtBancoDeDados
             // 
-            this.txtBancoDeDados.Location = new System.Drawing.Point(27, 91);
+            this.txtBancoDeDados.Location = new System.Drawing.Point(36, 112);
+            this.txtBancoDeDados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBancoDeDados.Name = "txtBancoDeDados";
-            this.txtBancoDeDados.Size = new System.Drawing.Size(210, 33);
+            this.txtBancoDeDados.Size = new System.Drawing.Size(280, 33);
             this.txtBancoDeDados.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -131,7 +136,8 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 69);
+            this.label2.Location = new System.Drawing.Point(59, 85);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 16);
             this.label2.TabIndex = 4;
@@ -139,9 +145,10 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(27, 156);
+            this.txtUsuario.Location = new System.Drawing.Point(36, 192);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(210, 33);
+            this.txtUsuario.Size = new System.Drawing.Size(280, 33);
             this.txtUsuario.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -155,7 +162,8 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(44, 133);
+            this.label3.Location = new System.Drawing.Point(59, 164);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 16);
             this.label3.TabIndex = 4;
@@ -163,9 +171,10 @@
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(27, 221);
+            this.txtSenha.Location = new System.Drawing.Point(36, 272);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(210, 33);
+            this.txtSenha.Size = new System.Drawing.Size(280, 33);
             this.txtSenha.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -179,7 +188,8 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(44, 202);
+            this.label4.Location = new System.Drawing.Point(59, 249);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 4;
@@ -187,9 +197,10 @@
             // 
             // txtPorta
             // 
-            this.txtPorta.Location = new System.Drawing.Point(27, 286);
+            this.txtPorta.Location = new System.Drawing.Point(36, 352);
+            this.txtPorta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPorta.Name = "txtPorta";
-            this.txtPorta.Size = new System.Drawing.Size(210, 33);
+            this.txtPorta.Size = new System.Drawing.Size(280, 33);
             this.txtPorta.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -203,7 +214,8 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(44, 267);
+            this.label5.Location = new System.Drawing.Point(59, 329);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 16);
             this.label5.TabIndex = 4;
@@ -211,9 +223,10 @@
             // 
             // btnSalvarConfiguracao
             // 
-            this.btnSalvarConfiguracao.Location = new System.Drawing.Point(38, 387);
+            this.btnSalvarConfiguracao.Location = new System.Drawing.Point(51, 476);
+            this.btnSalvarConfiguracao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalvarConfiguracao.Name = "btnSalvarConfiguracao";
-            this.btnSalvarConfiguracao.Size = new System.Drawing.Size(184, 48);
+            this.btnSalvarConfiguracao.Size = new System.Drawing.Size(245, 59);
             this.btnSalvarConfiguracao.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -231,7 +244,8 @@
             this.grpClienteControles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.grpClienteControles.CaptionOverlap = 0D;
             this.grpClienteControles.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.grpClienteControles.Location = new System.Drawing.Point(6, 3);
+            this.grpClienteControles.Location = new System.Drawing.Point(8, 4);
+            this.grpClienteControles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpClienteControles.Name = "grpClienteControles";
             // 
             // grpClienteControles.Panel
@@ -248,7 +262,7 @@
             this.grpClienteControles.Panel.Controls.Add(this.label3);
             this.grpClienteControles.Panel.Controls.Add(this.label1);
             this.grpClienteControles.Panel.Controls.Add(this.label2);
-            this.grpClienteControles.Size = new System.Drawing.Size(283, 453);
+            this.grpClienteControles.Size = new System.Drawing.Size(377, 558);
             this.grpClienteControles.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.grpClienteControles.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -259,15 +273,17 @@
             // 
             // frmConfiguracao
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
-            this.ClientSize = new System.Drawing.Size(301, 457);
+            this.ClientSize = new System.Drawing.Size(401, 562);
             this.Controls.Add(this.grpClienteControles);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(317, 496);
+            this.MaximumSize = new System.Drawing.Size(417, 601);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(317, 496);
+            this.MinimumSize = new System.Drawing.Size(417, 601);
             this.Name = "frmConfiguracao";
             this.Palette = this.krPallet;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;

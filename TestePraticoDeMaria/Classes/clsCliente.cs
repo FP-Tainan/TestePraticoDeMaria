@@ -70,6 +70,21 @@ namespace TestePraticoDeMaria.Classes
             id = clienteId;
         }
 
+        public void CarregarCliente(int cliente_Id)
+        {
+            DataTable dt = cmdSQL.ObterClientePeloId(cliente_Id);
+
+            if (dt.Rows.Count > 0)
+            {
+                id = cliente_Id;
+                Nome = dt.Rows[0]["nome"].ToString();
+                CpfCnpj = dt.Rows[0]["cpfcnpj"].ToString();
+                TelefoneCelular = dt.Rows[0]["telefone"].ToString();
+                Email = dt.Rows[0]["email"].ToString();
+                PessoaJuridica = Convert.ToBoolean(dt.Rows[0]["pessoajuridica"]);
+            }
+        }
+
         public DataTable PesquisarCliente(string filtro)
         {
             DataTable dt = new DataTable();
