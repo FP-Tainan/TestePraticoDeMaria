@@ -3,6 +3,7 @@
 * Utilizado para elaboração da interface a biblioteca Krypton Toolkit da Component Factory, é uma blibioteca de código aberto para estilização dos Forms, pode ser usado comercialmente sem problemas! 
 * Utilizado o pacote Noto Emoji Objects for Google, para os icones, um pacote gratuito de icones fornecido pela Google de uso aberto para distribuição comercial!
 * Utilizado PostgreSQL 16.0 (PostgreSQL 16.0, compiled by Visual C++ build 1935, 64-bit).
+* Foi utilizado o 4Devs para geração de todos os dados usados nos testes!
 ----------------------
 Sobre o Banco de dados: 
 * Todos os scripts de criação de banco, tabelas, viewers e usuário de acesso, estão na pasta SCRIPTS dentro do projeto.<br>
