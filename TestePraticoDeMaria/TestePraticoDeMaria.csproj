@@ -197,7 +197,6 @@
     <Compile Include="Classes\DataBase\clsComandosSQL.cs" />
     <Compile Include="Classes\DataBase\clsConexaoDB.cs" />
     <Compile Include="Classes\DataBase\ConexaoSingleton.cs" />
-    <Compile Include="Classes\DataBase\Espelho das tabelas\tb_produtos.cs" />
     <Compile Include="Classes\Enum\clsFormaPagamento.cs" />
     <Compile Include="Classes\Integracoes\clsCorreios.cs" />
     <Compile Include="Classes\Integracoes\clsIBGE.cs" />

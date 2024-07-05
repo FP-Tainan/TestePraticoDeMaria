@@ -179,6 +179,8 @@ namespace TestePraticoDeMaria.Classes.DataBase
 
         }
 
+
+
         #endregion
 
         #region Endereco
@@ -593,11 +595,54 @@ namespace TestePraticoDeMaria.Classes.DataBase
                 }
             }
         }
+        public bool removerPedidosDoCliente(int id)
+        {
+            string query = $"DELETE FROM tb_pedidos WHERE cliente_id = {id} ";
 
+            using (var conexao = ConexaoSingleton.Instance.ObterConexao())
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexao))
+                {
+                    try
+                    {
+                        conexao.Open();
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return false;
+                    }
+                }
+            }
+        }
+        public bool removerItensPedidosDoCliente(int id)
+        {
+            string query = $"DELETE FROM tb_pedidositens WHERE pedidos_id IN (SELECT id FROM tb_pedidos WHERE cliente_id = {id}) ";
+
+            using (var conexao = ConexaoSingleton.Instance.ObterConexao())
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexao))
+                {
+                    try
+                    {
+                        conexao.Open();
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return false;
+                    }
+                }
+            }
+        }
         #endregion
 
         #region Caixa
-     
+
         public bool SalvarMovimentacaoCaixa(int pedidos_id, bool entrada, bool saida,decimal valorMovimentacao, string formaPagamento)
         {
             string query = $"INSERT INTO tb_pedidosCaixa (pedidos_id,Entrada,Saida,ValorMovimentacao,FormaPagamento) " +
@@ -648,8 +693,7 @@ namespace TestePraticoDeMaria.Classes.DataBase
                     return dataTable;
                 }
             }
-        }
-        
+        }       
         public decimal caixaValorEntradaTotal(int pedidos_id)
         {
             string query = $"SELECT SUM(valormovimentacao) FROM tb_pedidosCaixa WHERE pedidos_id = {pedidos_id} AND entrada = true";
@@ -677,7 +721,6 @@ namespace TestePraticoDeMaria.Classes.DataBase
 
             return entrada;
         }
-
         public decimal caixaValorSaidaTotal(int pedidos_id)
         {
             string query = $"SELECT SUM(valormovimentacao) FROM tb_pedidosCaixa WHERE pedidos_id = {pedidos_id} AND saida = true";
@@ -704,6 +747,28 @@ namespace TestePraticoDeMaria.Classes.DataBase
             }
 
             return entrada;
+        }
+        public bool removerCaixaPedidosDoCliente(int id)
+        {
+            string query = $"DELETE FROM tb_pedidoscaixa WHERE pedidos_id IN (SELECT id FROM tb_pedidos WHERE cliente_id = {id})";
+
+            using (var conexao = ConexaoSingleton.Instance.ObterConexao())
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexao))
+                {
+                    try
+                    {
+                        conexao.Open();
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return false;
+                    }
+                }
+            }
         }
 
         #endregion

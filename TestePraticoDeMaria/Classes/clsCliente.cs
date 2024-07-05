@@ -57,6 +57,9 @@ namespace TestePraticoDeMaria.Classes
 
         public void DeletarCliente()
         {
+            cmdSQL.removerCaixaPedidosDoCliente(id);
+            cmdSQL.removerItensPedidosDoCliente(id);
+            cmdSQL.removerPedidosDoCliente(id);
             cmdSQL.RemoverCliente(id);
         }
 

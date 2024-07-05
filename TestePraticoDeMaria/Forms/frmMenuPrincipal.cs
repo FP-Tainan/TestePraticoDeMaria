@@ -185,17 +185,21 @@ namespace TestePraticoDeMaria.Forms
 
             cliente.CarregarCliente(nome, cpfCnpj, email, telefone, pj, clienteId);
 
+            int enderecoId = row.Cells["colEnderecoId"].Value == DBNull.Value ? 0 : Convert.ToInt32(row.Cells["colEnderecoId"].Value);
+            int numero = row.Cells["colNumero"].Value == DBNull.Value ? 0 : Convert.ToInt32(row.Cells["colNumero"].Value);
+            string cep = row.Cells["colCep"].Value == DBNull.Value ? string.Empty : row.Cells["colCep"].Value.ToString();
+            string logradouro = row.Cells["colLogradouro"].Value == DBNull.Value ? string.Empty : row.Cells["colLogradouro"].Value.ToString();
+            string complemento = row.Cells["colComplemento"].Value == DBNull.Value ? string.Empty : row.Cells["colComplemento"].Value.ToString();
+            string bairro = row.Cells["colBairro"].Value == DBNull.Value ? string.Empty : row.Cells["colBairro"].Value.ToString();
+            string localidade = row.Cells["colLocalidade"].Value == DBNull.Value ? string.Empty : row.Cells["colLocalidade"].Value.ToString();
+            string estado = row.Cells["ColEstado"].Value == DBNull.Value ? string.Empty : row.Cells["ColEstado"].Value.ToString();
 
-            int enderecoId = Convert.ToInt32(row.Cells["colEnderecoId"].Value);
-            int numero = Convert.ToInt32(row.Cells["colNumero"].Value);
-            string cep = row.Cells["colCep"].Value.ToString();
-            string logradouro = row.Cells["colLogradouro"].Value.ToString();
-            string complemento = row.Cells["colComplemento"].Value.ToString();
-            string bairro = row.Cells["colBairro"].Value.ToString();
-            string localidade = row.Cells["colLocalidade"].Value.ToString();
-            string estado = row.Cells["ColEstado"].Value.ToString();
+            if (enderecoId != 0)
+            {
+                endereco.CarregarEndereco(cep, logradouro, numero, complemento, bairro, localidade, estado,cliente.id,enderecoId);
+            }
 
-            endereco.CarregarEndereco(cep, logradouro, numero, complemento, bairro, localidade, estado, clienteId, enderecoId);
+
 
         }
         private void CarregarDadosCliente()
@@ -600,6 +604,7 @@ namespace TestePraticoDeMaria.Forms
         private void btnVendas_Click(object sender, EventArgs e)
         {
             tabInterface.SelectedTab = tabInterface.TabPages["tpVenda"];
+            btnPedidoNovo_Click(null, null);
         }
         private void btnRelatorios_Click(object sender, EventArgs e)
         {
