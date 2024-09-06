@@ -44,6 +44,8 @@ namespace TestePraticoDeMaria.Classes
             decimal valorSaida = cmdSQL.caixaValorSaidaTotal(pedidoId);
 
             return valorEntrada - valorSaida;
+
+            int testeDeCommit = 0;
         }
 
      
