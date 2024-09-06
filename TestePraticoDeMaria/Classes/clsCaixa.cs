@@ -45,7 +45,6 @@ namespace TestePraticoDeMaria.Classes
 
             return valorEntrada - valorSaida;
 
-            int testeDeCommit = 0;
         }
 
      
